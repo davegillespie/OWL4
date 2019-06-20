@@ -64,19 +64,15 @@ function OrdersListController(OrdersService) {
       <thead>
           <tr>          
               <th>ID</th>
-              <th>Product</th>
-              <th>Price</th> 
-              <th>Quantity</th>
+              <th>Pickup Facility Name</th>
               <th>Remove</th>
           </tr>
       </thead>
       <tbody>
           <tr ng-repeat="item in $ctrl.ordersList | orderBy: 'id'">
               <td> {{item.id}} </td>
-              <td> {{item.product}} </td>
-              <td> {{item.price | currency}} </td>
-              <td> {{item.quantity}} 
-              <button ng-click="$ctrl.updateItem(item, 5)" class="update-quantity">Update Quantity</button> 
+              <td> {{item.pickup_facility_name}} </td>
+             
               </td>
               
               <td> <button ng-click="$ctrl.removeItem(item)"> x </button> </td>

@@ -10,7 +10,7 @@ const pool = new pg.Pool({
     password: "Yeti2019",
     host: "localhost",
     port: 5432,
-    database: "ExpressShopDB",
+    database: "OWL",
     ssl: false
 });
 
@@ -31,9 +31,13 @@ app.post("/orders-router", (req, res) => {
     let id = data.id;
     console.log(data);
 
+    // pool.query(
+    //     "INSERT INTO orders (id, product, price, quantity) values($1::int, $2::text, $3::int, $4::int)", 
+    //     [data.id, data.product, data.price, data.quantity]
+    // )
     pool.query(
-        "INSERT INTO shoppingcart (id, product, price, quantity) values($1::int, $2::text, $3::int, $4::int)", 
-        [data.id, data.product, data.price, data.quantity]
+        "INSERT INTO orders (id, pickup_facility_name) values($1::int, $2::text)", 
+        [data.id, data.pickup_facility_name]
     )
     .then( () => {
         res.status(201); // Created
@@ -51,8 +55,8 @@ app.put("/orders-router/:id", (req, res) => {
 
     let data = req.body;
         pool.query(
-            "UPDATE shoppingcart SET quantity=$2::int WHERE id=$1::int", 
-            [req.params.id, data.quantity]
+            "UPDATE orders SET quantity=$2::int WHERE id=$1::int", 
+            [req.params.id, data.pickup_facility_name]
         )
         .then( () => {
             res.status(201); // Created
@@ -67,7 +71,7 @@ app.put("/orders-router/:id", (req, res) => {
 
 
 app.get("/orders-router", (req, res) => {
-    pool.query("SELECT * FROM shoppingcart ORDER BY id;")
+    pool.query("SELECT * FROM orders ORDER BY id;")
     .then( (result) => {
         res.send(result.rows);
     })
@@ -80,7 +84,7 @@ app.get("/orders-router", (req, res) => {
     res.send('Deleting ordersRouter..');
 
     pool.query(
-        "DELETE FROM shoppingcart WHERE id = $1::int", [req.params.id])
+        "DELETE FROM orders WHERE id = $1::int", [req.params.id])
     .then( () => {
         res.status(202); // Deleted
         res.send('Successfully deleted item!');
@@ -90,5 +94,5 @@ app.get("/orders-router", (req, res) => {
 
 
 app.listen(4000, () => {
-    console.log("JSON Server is running on 4000"); // localhost:4000/shoppingcart
+    console.log("JSON Server is running on 4000"); // localhost:4000/orders
 });

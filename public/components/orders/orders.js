@@ -5,10 +5,10 @@ function OrdersController($scope, OrdersService) {
     $scope.addItem = () => {
         $scope.items.push({
             id: $scope.newItem.id,
-            product: $scope.newItem.product,
-            price: $scope.newItem.price,
-            quantity: $scope.newItem.quantity,
-            available: $scope.newItem.available
+            product: $scope.newItem.pickup_facility_name
+            // price: $scope.newItem.price,
+            // quantity: $scope.newItem.quantity,
+            // available: $scope.newItem.available
         });
         OrdersService.addItem($scope.items);
 
@@ -47,9 +47,7 @@ function OrdersController($scope, OrdersService) {
     
             <h4>NEW ORDER FORM:</h4>
                 <input class="input-item" type="number" placeholder="ID" ng-model="newItem.id"/>
-                <input class="input-item" type="text" placeholder="Product" ng-model="newItem.product"/>
-                <input class="input-item" type="number" placeholder="Price" ng-model="newItem.price"/>
-                <input class="input-item" type="number" placeholder="Quantity" ng-model="newItem.quantity"/>
+                <input class="input-item" type="text" placeholder="Product" ng-model="newItem.pickup_facility_name"/>
                 
                 <br>
                 <br>
