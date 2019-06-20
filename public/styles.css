@@ -1,0 +1,381 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+
+main {
+  border: 4px solid #bbb;
+  margin-left: 20px;
+  /* margin-right: 20px; */
+  padding: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.head-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.head-h1 {
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center;
+  padding-top: 10px; */
+  margin-left: 20px;
+  font-weight: bolder;
+}
+
+.head-h1:hover {
+  color:  #3D9A8D;
+}
+
+.head-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style-type: none; 
+  width: 60%;
+  margin-right: 20px;
+  
+}
+
+a:link, a:visited {
+  background-color: #46BDAD;
+  color: white;
+  padding: 14px 25px;
+  text-align: center; 
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #3D9A8D;
+  box-shadow: 5cm;
+}
+
+
+.footer-h1:hover {
+  color:  #3D9A8D;
+}
+
+.footer-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  list-style-type: none; 
+  width: 60%;
+  margin-right: 20px;
+  
+}
+
+
+
+
+/* Flex sidenav bar */
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  /* position: fixed; */
+  /* z-index: 1; */
+  /* top: 0; */
+  left: 0;
+  background-color: #bbb;
+  /* overflow-x: hidden; */
+  /* padding-top: 20px; */
+  /* padding-bottom: 20px; */
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  display: block;
+  border: none;
+  background: none;
+  /* width:100%; */
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  background-color: #46BDAD;
+  color: #f9fafc;
+}
+
+/* Main content */
+/* .main {
+  margin-left: 200px; Same as the width of the sidenav
+  font-size: 20px; Increased text to enable scrolling
+  padding: 0px 10px;
+} */
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #46BDAD;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: lightgrey;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+
+.maincontainer {
+  display: flex;
+  margin: 10px;
+}
+
+
+.orders {
+  width: 85%; 
+  margin-left: 10px;
+  /* margin-right: 10px; */
+  height: auto;
+  padding: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #bbb;
+}
+
+
+.pickuponly {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.freightonly {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deliveryonly {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.orderinput {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+
+.orders {
+  border: 4px solid #bbb;
+  margin-left: 20px;
+  /* margin-right: 20px; */
+  padding: 20px;
+  width: 100%;
+  
+}
+
+
+.orderbtn {
+background-color: #46BDAD;
+color: white;
+padding: 4px 14px;
+/* border-radius: 4px; */
+}
+
+
+.insideheader {
+display: flex;
+justify-content: space-between;
+margin: 10px;
+}
+
+.insideheader-nav {
+display: flex;
+justify-content: flex-end;
+/* align-items: center;
+padding-top: 10px; */
+/* margin-left: 50%; */
+margin-left: 60px;
+font-weight: bolder;
+text-decoration: none;
+list-style-type: none;
+position: absolute;
+}
+
+.shipbtn {
+background-color: #00B4EB;
+color: white;
+padding: 4px 14px;
+/* border-radius: 4px; */
+}
+
+.shipbtn:hover {
+background-color: #0099CC;
+}
+
+.shipmentbtn {
+/* background-color: #F05F3B; */
+background-color: #00B4EB;
+color: white;
+padding: 14px 25px;
+text-align: center;
+font-size: medium;
+}
+
+.shipmentbtn:hover {
+background-color: #0099CC;
+box-shadow: 5cm;
+}
+
+.btnCreate {
+/* background-color: #F05F3B; */
+background-color: #46BDAD;
+color: white;
+padding: 14px 25px;
+text-align: center;
+font-size: medium;
+}
+
+.btnCreate:hover {
+background-color:  #3D9A8D;
+box-shadow: 5cm;
+}
+
+.btnDispatch {
+/* background-color: #F05F3B; */
+background-color: rgb(59, 138, 190);
+color: white;
+padding: 14px 25px;
+text-align: center;
+font-size: medium;
+}
+
+.btnDispatch:hover {
+background-color:  rgb(44, 110, 155);
+box-shadow: 5cm;
+}
+
+
+.btnSomething {
+/* background-color: #F05F3B; */
+background-color: rgb(247, 132, 1);
+color: white;
+padding: 14px 25px;
+text-align: center;
+font-size: medium;
+}
+
+.btnSomething:hover {
+background-color:  rgb(204, 110, 3);
+box-shadow: 5cm;
+}
+
+
+.bar {
+background-color: #bbb;
+}
+
+.progress {
+/* background-color: #3291C9; */
+/* background-color: #FEC925; */
+/* background-color: #C9E3DB; */
+background-color: #FF8800;
+font-size: 15px;
+font-weight: bolder;
+padding: 3px;
+}
+
+
+.btnSubmit {
+/* width: 100%; */
+background-color: #00B4EB;
+color: white;
+padding: 10px 20px;
+margin: 8px 0;
+border: none;
+cursor: pointer;
+font-size: 12px;
+}
+.btnSubmit:hover {
+background-color: #0099CC;
+box-shadow: 0 10px 14px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+.btnRate {
+border: 2px solid #00B4EB;
+-webkit-transition-duration: 0.4s; 
+transition-duration: 0.4s;
+/* color:  #00B4EB; */
+color: black;
+padding: 4px;
+border-radius: 4px;
+}
+
+.btnRate:hover {
+background-color: #0099CC; 
+color: white;
+}
+
+
+.create-order {
+/* width: 85%; */
+/* height: 600px; */
+margin-left: 10px;
+height: auto;
+padding: 10px;
+border-style: solid;
+border-width: 4px;
+border-color: #bbb;
+}
+
+
+
+
+table { 
+width: 100%;
+border-collapse: collapse; 
+margin: 50px auto;
+}
+
+th { 
+background-color: lightgray;
+font-weight: bold; 
+/* width: fit-content; */
+}
+
+td {
+/* width: fit-content; */
+}
+
+th, td  { 
+padding: 8px; 
+border: 1px solid #ddd; 
+font-size: 16px;
+} 
+
+tr:hover {
+background-color:#f5f5f5;
+}
+
+
+
+
+

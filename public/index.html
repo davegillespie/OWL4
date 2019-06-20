@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="owlApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> OWL </title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+    <header>
+        <nav class="head-nav">
+                <h1 class="head-h1">OWL</h1>
+            <ul class="head-ul">
+                
+                <li><a href="#!/home">Home</a></li>
+                <li><a href="#!/about">About</a></li>
+                <li><a href="#!/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="maincontainer"> 
+        <div class="sidenav">
+            <a href="#!/orders">Orders</a>
+            <a href="#!/shipments">Shipments</a>
+            <a href="#!/dispatches">Dispatches</a>
+            <button class="dropdown-btn">MacroView
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="#!/inbounds">Inbounds</a>
+              <a href="#!/outbounds">Outbounds</a>
+              <a href="#!/warehouses">Warehouses</a>
+            </div>
+            <a href="#!/analytics">Analytics</a>
+            <a href="#!/locations">Locations</a>
+            <a href="#!/carriers">Carriers</a>
+            <button class="dropdown-btn">Admin
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+              <a href="#!/employees">Employees</a>
+              <a href="#!/equipment">Equipment</a>
+              <a href="#!/accountspay">Accounts Pay</a>
+              <a href="#!/accountsrec">Accounts Rec</a> 
+            </div>
+        </div>
+    
+
+
+    <main id="main" ng-view>
+        <!--- Anything configured in the route is going to be injected into here--->
+    </main>
+
+    
+
+</div> 
+
+<footer> 
+    <nav class="footer-nav">   
+        <ul class="footer-ul">               
+            <li><a href="#!/linked-in">LinkedIn</a></li>
+            <li><a href="#!/facebook">Facebook</a></li>
+            <li><a href="#!/twitter">Twitter</a></li>
+        </ul>
+    </nav>
+</footer>
+       
+
+        <script src="https://code.angularjs.org/1.7.8/angular.js"></script>
+        <script src="https://code.angularjs.org/1.7.8/angular-route.js"></script>
+        <script src="app.module.js"></script>
+        
+        <script src="app.config.js"></script>
+
+        <script src="components/about/about.js"></script>
+        <script src="components/home/home.js"></script>
+        <script src="components/login/login.js"></script>
+        <script src="components/orders/orders.js"></script>
+        <script src="components/orders-list/ordersList.js"></script>
+        
+        <script src="orders.service.js"></script>
+        <script src="main.js"></script>
+       
+    </body>
+</html>
