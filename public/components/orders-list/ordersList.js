@@ -65,6 +65,12 @@ function OrdersListController(OrdersService) {
           <tr>          
               <th>ID</th>
               <th>Pickup Facility Name</th>
+              <th>Pickup Address</th>
+              <th>Pickup City</th>
+              <th>Pickup State</th>
+              <th>Pickup Zip</th>
+              <th>Pickup Phone</th>
+              <th>Pickup Email</th>
               <th>Remove</th>
           </tr>
       </thead>
@@ -72,8 +78,13 @@ function OrdersListController(OrdersService) {
           <tr ng-repeat="item in $ctrl.ordersList | orderBy: 'id'">
               <td> {{item.id}} </td>
               <td> {{item.pickup_facility_name}} </td>
-             
-              </td>
+              <td> {{item.pickup_address}} </td>
+              <td> {{item.pickup_city}} </td>
+              <td> {{item.pickup_state}} </td>
+              <td> {{item.pickup_zip}} </td>
+              <td> {{item.pickup_phone}} </td>
+              <td> {{item.pickup_email}} </td>
+              
               
               <td> <button ng-click="$ctrl.removeItem(item)"> x </button> </td>
           </tr>

@@ -3,7 +3,7 @@ function HomeController() {
     var ctrl = this;
 }
   
-  angular.module('shopApp')
+  angular.module('owlApp')
   .component('home', {
     template: `
         <section id="home">

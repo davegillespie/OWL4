@@ -74,5 +74,6 @@ function OrdersService($http, $q) {
 };
     
 
-angular.module('owlApp')
+angular
+.module('owlApp')
 .service('OrdersService', OrdersService); // Passing $http service as dependency for our service

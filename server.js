@@ -36,8 +36,8 @@ app.post("/orders-router", (req, res) => {
     //     [data.id, data.product, data.price, data.quantity]
     // )
     pool.query(
-        "INSERT INTO orders (id, pickup_facility_name) values($1::int, $2::text)", 
-        [data.id, data.pickup_facility_name]
+        "INSERT INTO orders (id, pickup_facility_name, pickup_address, pickup_city, pickup_state, pickup_zip, pickup_phone, pickup_email) values($1::int, $2::text, $3::text, $4::text, $5::text, $6::text, $7::text, $8::text)", 
+        [data.id, data.pickup_facility_name, data.pickup_address, data.pickup_city, data.pickup_state, data.pickup_zip, data.pickup_phone, data.pickup_email]
     )
     .then( () => {
         res.status(201); // Created
@@ -56,7 +56,7 @@ app.put("/orders-router/:id", (req, res) => {
     let data = req.body;
         pool.query(
             "UPDATE orders SET quantity=$2::int WHERE id=$1::int", 
-            [req.params.id, data.pickup_facility_name]
+            [req.params.id, data.pickup_facility_name, data.pickup_address, data.pickup_city, data.pickup_state, data.pickup_zip, data.pickup_phone, data.pickup_email]
         )
         .then( () => {
             res.status(201); // Created
