@@ -10,7 +10,7 @@ angular
     template: `
         <section class="about">
        
-        
+        <h3>This is the About page!</h3>
 
         </section>
         `, // or use templateUrl

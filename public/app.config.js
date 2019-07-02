@@ -13,9 +13,9 @@ angular.module("owlApp")
         // Load the home component
         template: "<home></home>"
       })
-      .when("/cart-list", {
-        // Load the cart-list component
-        template: "<cart-list></cart-list>"
+      .when("/about", {
+        // Load the about component
+        template: "<about></about>"
       })
       .when("/login", {
         // Load the login component

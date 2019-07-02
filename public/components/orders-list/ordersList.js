@@ -63,7 +63,7 @@ function OrdersListController(OrdersService) {
     <table>
       <thead>
           <tr>          
-              <th>ID</th>
+              <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
               <th>Pickup City</th>
@@ -71,6 +71,25 @@ function OrdersListController(OrdersService) {
               <th>Pickup Zip</th>
               <th>Pickup Phone</th>
               <th>Pickup Email</th>
+
+              <th>Pickup Date</th>
+              <th>Delivery Date</th>
+
+              <th>Quantity</th>
+              <th>Unit</th> 
+              <th>Weight</th>
+              <th>Trailer</th>
+              <th>Temperature</th> 
+              <th>Size</th>
+
+              <th>Delivery Facility Name</th>
+              <th>Delivery Address</th> 
+              <th>Delivery City</th>
+              <th>Delivery State</th>
+              <th>Delivery Zip</th> 
+              <th>Delivery Phone</th>
+              <th>Delivery Email</th>
+
               <th>Remove</th>
           </tr>
       </thead>
@@ -83,8 +102,22 @@ function OrdersListController(OrdersService) {
               <td> {{item.pickup_state}} </td>
               <td> {{item.pickup_zip}} </td>
               <td> {{item.pickup_phone}} </td>
-              <td> {{item.pickup_email}} </td>
-              
+              <td> {{item.pickup_email}} </td>      
+              <td> {{item.pickup_date}} </td>
+              <td> {{item.delivery_date}} </td>
+              <td> {{item.quantity}} </td>
+              <td> {{item.unit}} </td>
+              <td> {{item.weight}} </td>
+              <td> {{item.trailer}} </td>
+              <td> {{item.temperature}} </td>
+              <td> {{item.size}} </td>
+              <td> {{item.delivery_facility_name}} </td>
+              <td> {{item.delivery_address}} </td>
+              <td> {{item.delivery_city}} </td>
+              <td> {{item.delivery_state}} </td>
+              <td> {{item.delivery_zip}} </td>
+              <td> {{item.delivery_phone}} </td>
+              <td> {{item.delivery_email}} </td>
               
               <td> <button ng-click="$ctrl.removeItem(item)"> x </button> </td>
           </tr>
