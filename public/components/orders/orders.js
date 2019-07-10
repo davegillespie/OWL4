@@ -43,44 +43,44 @@ function OrdersController($scope, OrdersService) {
     $scope.items = [];
     
 
-    $scope.shipment = [];
+    // $scope.shipment = [];
 
-    // $scope.addShipment = (shipment) => {
-    //     OrdersService.addShipment(shipment);
-    // }
-
-    $scope.addShipment = () => {
-        $scope.shipment.push({
-            id: $scope.shipment.id,
-            pickup_facility_name: $scope.shipment.pickup_facility_name,
-            pickup_address: $scope.shipment.pickup_address,
-            pickup_city: $scope.shipment.pickup_city,
-            pickup_state: $scope.shipment.pickup_state,
-            pickup_zip: $scope.shipment.pickup_zip,
-            pickup_phone: $scope.shipment.pickup_phone,
-            pickup_email: $scope.shipment.pickup_email,
-            pickup_date: $scope.shipment.pickup_date,
-            delivery_date: $scope.shipment.delivery_date,
-            quantity: $scope.shipment.quantity,
-            unit: $scope.shipment.unit,
-            weight: $scope.shipment.weight,
-            trailer: $scope.shipment.trailer,
-            temperature: $scope.shipment.temperature,
-            size: $scope.shipment.size,
-            delivery_facility_name: $scope.shipment.delivery_facitlity_name,
-            delivery_address: $scope.shipment.delivery_address,
-            delivery_city: $scope.shipment.delivery_city,
-            delivery_state: $scope.shipment.delivery_state,
-            delivery_zip: $scope.shipment.delivery_zip,
-            delivery_phone: $scope.shipment.delivery_phone,
-            delivery_email: $scope.shipment.delivery_email
-          });
-        console.log("working", $scope.shipment);
-        OrdersService.addShipment($scope.shipment);
+    $scope.addShipment = (shipment) => {
+        OrdersService.addShipment(shipment);
     }
 
+    // $scope.addShipment = () => {
+    //     $scope.shipment.push({
+    //         id: $scope.shipment.id,
+    //         pickup_facility_name: $scope.shipment.pickup_facility_name,
+    //         pickup_address: $scope.shipment.pickup_address,
+    //         pickup_city: $scope.shipment.pickup_city,
+    //         pickup_state: $scope.shipment.pickup_state,
+    //         pickup_zip: $scope.shipment.pickup_zip,
+    //         pickup_phone: $scope.shipment.pickup_phone,
+    //         pickup_email: $scope.shipment.pickup_email,
+    //         pickup_date: $scope.shipment.pickup_date,
+    //         delivery_date: $scope.shipment.delivery_date,
+    //         quantity: $scope.shipment.quantity,
+    //         unit: $scope.shipment.unit,
+    //         weight: $scope.shipment.weight,
+    //         trailer: $scope.shipment.trailer,
+    //         temperature: $scope.shipment.temperature,
+    //         size: $scope.shipment.size,
+    //         delivery_facility_name: $scope.shipment.delivery_facitlity_name,
+    //         delivery_address: $scope.shipment.delivery_address,
+    //         delivery_city: $scope.shipment.delivery_city,
+    //         delivery_state: $scope.shipment.delivery_state,
+    //         delivery_zip: $scope.shipment.delivery_zip,
+    //         delivery_phone: $scope.shipment.delivery_phone,
+    //         delivery_email: $scope.shipment.delivery_email
+    //       });
+    //     console.log("working", $scope.shipment);
+    //     OrdersService.addShipment($scope.shipment);
+    // }
 
 
+    $scope.shipment = [];
 
 
 
@@ -103,7 +103,7 @@ function OrdersController($scope, OrdersService) {
             <h3>Orders</h3>  
             <ul class="insideheader-nav">       
                 <li><button ng-click="showTheForm = !showTheForm" class="btnCreate">Create Order</button></li> 
-                <li><button class="shipmentbtn" ng-click="addShipment(item)">Create Shipment</button></li>       
+                <li><button class="shipmentbtn" ng-click="addShipment(shipment)">Create Shipment</button></li>       
             </ul>   
         </div>
 

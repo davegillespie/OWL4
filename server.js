@@ -104,7 +104,7 @@ app.post("/shipments-router", (req, res) => {
     console.log(data);
 
         pool.query("SELECT * FROM orders FULL JOIN shipments ON orders.delivery_email = shipments.id WHERE shipments.id IS NULL",
-        [req.params.id]
+        [data.req.params.id]
         )
         .then( (result) => {
             res.send(result.rows);

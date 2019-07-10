@@ -53,30 +53,29 @@ function OrdersListController(OrdersService) {
 
     ctrl.addShipment = () => {
       ctrl.shipment.push({
-
-          id: ctrl.shipment.id,
-          pickup_facility_name: ctrl.shipment.pickup_facility_name,
-          pickup_address: ctrl.shipment.pickup_address,
-          pickup_city: ctrl.shipment.pickup_city,
-          pickup_state: ctrl.shipment.pickup_state,
-          pickup_zip: ctrl.shipment.pickup_zip,
-          pickup_phone: ctrl.shipment.pickup_phone,
-          pickup_email: ctrl.shipment.pickup_email,
-          pickup_date: ctrl.shipment.pickup_date,
-          delivery_date: ctrl.shipment.delivery_date,
-          quantity: ctrl.shipment.quantity,
-          unit: ctrl.shipment.unit,
-          weight: ctrl.shipment.weight,
-          trailer: ctrl.shipment.trailer,
-          temperature: ctrl.shipment.temperature,
-          size: ctrl.shipment.size,
-          delivery_facility_name: ctrl.shipment.delivery_facitlity_name,
-          delivery_address: ctrl.shipment.delivery_address,
-          delivery_city: ctrl.shipment.delivery_city,
-          delivery_state: ctrl.shipment.delivery_state,
-          delivery_zip: ctrl.shipment.delivery_zip,
-          delivery_phone: ctrl.shipment.delivery_phone,
-          delivery_email: ctrl.shipment.delivery_email
+          // id: ctrl.shipment.id,
+          // pickup_facility_name: ctrl.shipment.pickup_facility_name,
+          // pickup_address: ctrl.shipment.pickup_address,
+          // pickup_city: ctrl.shipment.pickup_city,
+          // pickup_state: ctrl.shipment.pickup_state,
+          // pickup_zip: ctrl.shipment.pickup_zip,
+          // pickup_phone: ctrl.shipment.pickup_phone,
+          // pickup_email: ctrl.shipment.pickup_email,
+          // pickup_date: ctrl.shipment.pickup_date,
+          // delivery_date: ctrl.shipment.delivery_date,
+          // quantity: ctrl.shipment.quantity,
+          // unit: ctrl.shipment.unit,
+          // weight: ctrl.shipment.weight,
+          // trailer: ctrl.shipment.trailer,
+          // temperature: ctrl.shipment.temperature,
+          // size: ctrl.shipment.size,
+          // delivery_facility_name: ctrl.shipment.delivery_facitlity_name,
+          // delivery_address: ctrl.shipment.delivery_address,
+          // delivery_city: ctrl.shipment.delivery_city,
+          // delivery_state: ctrl.shipment.delivery_state,
+          // delivery_zip: ctrl.shipment.delivery_zip,
+          // delivery_phone: ctrl.shipment.delivery_phone,
+          // delivery_email: ctrl.shipment.delivery_email
         });
       console.log("working", ctrl.shipment);
       OrdersService.addShipment(ctrl.shipment);

@@ -17,7 +17,7 @@ function ShipmentsListController(OrdersService) {
       })
     }
     
-    // ctrl.shipmentsList = OrdersService.shipmentsList;
+    ctrl.shipmentsList = OrdersService.shipmentsList;
     // ctrl.removeshipment = OrdersService.removeShipment;
     ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
 
