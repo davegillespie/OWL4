@@ -100,11 +100,11 @@ app.get("/orders-router", (req, res) => {
 
 app.post("/shipments-router", (req, res) => {
     let data = req.body[0];
-    let id = parseInt(request.params.id)
+    let id = req.params.id;
     console.log(data);
 
-        pool.query("SELECT orders.id, orders.pickup_facility_name, orders.pickup_address, orders.pickup_city, orders.pickup_state, orders.pickup_zip, orders.pickup_phone, orders.pickup_email, orders.pickup_date, orders.delivery_date, orders.quantity, orders.unit, orders.weight, orders.trailer, orders.temperature, orders.size, orders.delivery_facitlity_name, orders.delivery_address, orders.delivery_city, orders.delivery_state, orders.delivery_zip, orders.delivery_phone, orders.delivery_email, shipments.id, shipments.pickup_facility_name, shipments.pickup_address, shipments.pickup_city, shipments.pickup_state, shipments.pickup_zip, shipments.pickup_phone, shipments.pickup_email, shipments.pickup_date, shipments.delivery_date, shipments.quantity, shipments.unit, shipments.weight, shipments.trailer, shipments.temperature, shipments.size, shipments.delivery_facitlity_name, shipments.delivery_address, shipments.delivery_city, shipments.delivery_state, shipments.delivery_zip,shipments.delivery_phone, shipments.delivery_email FROM orders LEFT JOIN shipments ON orders.pickup_facility_name = shipments.pickup_facility_name WHERE shipments.id IS NULL", 
-        [data.id]
+        pool.query("SELECT * FROM orders FULL JOIN shipments ON orders.delivery_email = shipments.id WHERE shipments.id IS NULL"
+        [req.params.id]
         )
         .then( (result) => {
             res.send(result.rows);

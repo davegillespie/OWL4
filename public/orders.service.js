@@ -73,7 +73,7 @@ function OrdersService($http, $q) {
 
       service.shipmentsList = [];
 
-    //   service.shipment = [];
+      service.shipment = [];
 
       service.addShipment = (shipment) => {
           console.log(shipment);

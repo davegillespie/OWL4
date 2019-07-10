@@ -103,7 +103,7 @@ function OrdersController($scope, OrdersService) {
             <h3>Orders</h3>  
             <ul class="insideheader-nav">       
                 <li><button ng-click="showTheForm = !showTheForm" class="btnCreate">Create Order</button></li> 
-                <li><button class="shipmentbtn" ng-click="addShipment(shipment)">Create Shipment</button></li>       
+                <li><button class="shipmentbtn" ng-click="addShipment(item)">Create Shipment</button></li>       
             </ul>   
         </div>
 

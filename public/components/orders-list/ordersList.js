@@ -51,36 +51,36 @@ function OrdersListController(OrdersService) {
 
 
 
-  //   ctrl.addShipment = () => {
-  //     ctrl.shipment.push({
+    ctrl.addShipment = () => {
+      ctrl.shipment.push({
 
-  //         // id: ctrl.item.id,
-  //         // pickup_facility_name: ctrl.item.pickup_facility_name,
-  //         // pickup_address: ctrl.item.pickup_address,
-  //         // pickup_city: ctrl.item.pickup_city,
-  //         // pickup_state: ctrl.item.pickup_state,
-  //         // pickup_zip: ctrl.item.pickup_zip,
-  //         // pickup_phone: ctrl.item.pickup_phone,
-  //         // pickup_email: ctrl.item.pickup_email,
-  //         // pickup_date: ctrl.item.pickup_date,
-  //         // delivery_date: ctrl.item.delivery_date,
-  //         // quantity: ctrl.item.quantity,
-  //         // unit: ctrl.item.unit,
-  //         // weight: ctrl.item.weight,
-  //         // trailer: ctrl.item.trailer,
-  //         // temperature: ctrl.item.temperature,
-  //         // size: ctrl.item.size,
-  //         // delivery_facility_name: ctrl.item.delivery_facitlity_name,
-  //         // delivery_address: ctrl.item.delivery_address,
-  //         // delivery_city: ctrl.item.delivery_city,
-  //         // delivery_state: ctrl.item.delivery_state,
-  //         // delivery_zip: ctrl.item.delivery_zip,
-  //         // delivery_phone: ctrl.item.delivery_phone,
-  //         // delivery_email: ctrl.item.delivery_email
-  //       });
-  //     console.log("working", ctrl.shipment);
-  //     OrdersService.addShipment(ctrl.shipment);
-  // }
+          id: ctrl.shipment.id,
+          pickup_facility_name: ctrl.shipment.pickup_facility_name,
+          pickup_address: ctrl.shipment.pickup_address,
+          pickup_city: ctrl.shipment.pickup_city,
+          pickup_state: ctrl.shipment.pickup_state,
+          pickup_zip: ctrl.shipment.pickup_zip,
+          pickup_phone: ctrl.shipment.pickup_phone,
+          pickup_email: ctrl.shipment.pickup_email,
+          pickup_date: ctrl.shipment.pickup_date,
+          delivery_date: ctrl.shipment.delivery_date,
+          quantity: ctrl.shipment.quantity,
+          unit: ctrl.shipment.unit,
+          weight: ctrl.shipment.weight,
+          trailer: ctrl.shipment.trailer,
+          temperature: ctrl.shipment.temperature,
+          size: ctrl.shipment.size,
+          delivery_facility_name: ctrl.shipment.delivery_facitlity_name,
+          delivery_address: ctrl.shipment.delivery_address,
+          delivery_city: ctrl.shipment.delivery_city,
+          delivery_state: ctrl.shipment.delivery_state,
+          delivery_zip: ctrl.shipment.delivery_zip,
+          delivery_phone: ctrl.shipment.delivery_phone,
+          delivery_email: ctrl.shipment.delivery_email
+        });
+      console.log("working", ctrl.shipment);
+      OrdersService.addShipment(ctrl.shipment);
+  }
 
 
 
@@ -132,7 +132,7 @@ function OrdersListController(OrdersService) {
       </thead>
       <tbody>
           <tr ng-repeat="item in $ctrl.ordersList | orderBy: 'id'">
-              <td> <input type="checkbox" data-checklist-model="shipment" data-checklist-value="item"/> </td>
+              <td> <input type="checkbox" data-checklist-model="shipment" /> </td>
               <td> {{item.id}} </td>
               <td> {{item.pickup_facility_name}} </td>
               <td> {{item.pickup_address}} </td>
