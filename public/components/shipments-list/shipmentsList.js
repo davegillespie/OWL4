@@ -18,6 +18,7 @@ function ShipmentsListController(OrdersService) {
     }
     
     ctrl.shipmentsList = OrdersService.shipmentsList;
+    ctrl.ordersList = OrdersService.ordersList;
     // ctrl.removeshipment = OrdersService.removeShipment;
     ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
 
@@ -112,7 +113,34 @@ function ShipmentsListController(OrdersService) {
               <td> {{shipment.shipment_rate}} </td>
               
               <td> <button ng-click="$ctrl.removeShipment(shipment)"> x </button> </td>
+          
+              <tr ng-repeat="item in $ctrl.ordersList">
+                <td> {{item.id}} </td>
+                <td> {{item.pickup_facility_name}} </td>
+                <td> {{item.pickup_address}} </td>
+                <td> {{item.pickup_city}} </td>
+                <td> {{item.pickup_state}} </td>
+                <td> {{item.pickup_zip}} </td>
+                <td> {{item.pickup_phone}} </td>
+                <td> {{item.pickup_email}} </td>      
+                <td> {{item.pickup_date}} </td>
+                <td> {{item.delivery_date}} </td>
+                <td> {{item.quantity}} </td>
+                <td> {{item.unit}} </td>
+                <td> {{item.weight}} </td>
+                <td> {{item.trailer}} </td>
+                <td> {{item.temperature}} </td>
+                <td> {{item.size}} </td>
+                <td> {{item.delivery_facility_name}} </td>
+                <td> {{item.delivery_address}} </td>
+                <td> {{item.delivery_city}} </td>
+                <td> {{item.delivery_state}} </td>
+                <td> {{item.delivery_zip}} </td>
+                <td> {{item.delivery_phone}} </td>
+                <td> {{item.delivery_email}} </td>
+              </tr>
           </tr>
+          
 
           <tr ng-if="shipment.expanded" ng-repeat-end="">
               <td></td>

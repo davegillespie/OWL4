@@ -119,14 +119,27 @@ app.post("/shipments-router", (req, res) => {
 
 });
 
+// app.get("/shipments-router", (req, res) => {
+//     pool.query("SELECT * FROM shipments")
+//     .then( (result) => {
+//         res.send(result.rows);
+//     })
+//   });
+
 app.get("/shipments-router", (req, res) => {
-    pool.query("SELECT * FROM shipments")
-    .then( (result) => {
-        res.send(result.rows);
-    })
+    let data = req.body[0];
+    let id = data.id;
+    console.log(data);
+
+        pool.query("SELECT * FROM orders FULL JOIN shipments ON orders.delivery_email = shipments.shipment_id WHERE shipments.shipment_id IS NULL",
+        []
+        )
+        .then( (result) => {
+            res.send(result.rows);
+        })
   });
 
-
+  
  // accept DELETE request at URI: /shipmentsRouter
  app.delete('/shipments-router/:id', (req, res) => {
     console.log(req.body); // <-- this is the shipmentData that has been extracted from the request
