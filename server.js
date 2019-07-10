@@ -100,19 +100,27 @@ app.get("/orders-router", (req, res) => {
 
 app.post("/shipments-router", (req, res) => {
     let data = req.body[0];
-    let id = req.params.id;
+    let id = data.id;
     console.log(data);
 
-        pool.query("SELECT * FROM orders FULL JOIN shipments ON orders.delivery_email = shipments.id WHERE shipments.id IS NULL",
-        [data.req.params.id]
+        // pool.query("SELECT * FROM orders FULL JOIN shipments ON orders.delivery_email = shipments.id WHERE shipments.id IS NULL",
+        // [data.req.params.id]
+        // )
+        // .then( (result) => {
+        //     res.send(result.rows);
+        // })
+
+        pool.query("INSERT INTO shipments (shipment_id, shipment_carrier, shipment_rate) values($1::int, $2::text, $3::int)", 
+        [data.shipment_id, data.shipment_carrier, data.shipment_rate]
         )
         .then( (result) => {
             res.send(result.rows);
         })
+
 });
 
 app.get("/shipments-router", (req, res) => {
-    pool.query("SELECT * FROM shipments ORDER BY id;")
+    pool.query("SELECT * FROM shipments")
     .then( (result) => {
         res.send(result.rows);
     })

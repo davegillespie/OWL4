@@ -86,9 +86,9 @@ function OrdersService($http, $q) {
             
               $http.post('/shipments-router', shipment)
               .then( (success) => {
-                  service.shipment = {};
-                  service.shipmentsList = data;
-                  console.log(data);
+                  service.shipment =  {};
+                //   service.shipmentsList = data;
+                //   console.log(data);
               return genericSuccess(success);
               }); 
       }

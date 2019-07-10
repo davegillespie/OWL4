@@ -22,8 +22,8 @@ function ShipmentsListController(OrdersService) {
     ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
 
     OrdersService.getShipmentsTable()
-    .then( (data) => {
-      ctrl.shipmentsList = data;
+    .then( (shipment) => {
+      ctrl.shipmentsList = shipment;
     });
 
 
@@ -100,36 +100,16 @@ function ShipmentsListController(OrdersService) {
           </tr>
       </thead>
       <tbody>
-          <tr ng-repeat="shipment in $ctrl.shipmentsList | orderBy: 'id'">
+          <tr ng-repeat="shipment in $ctrl.shipmentsList">
           <td>
           <button ng-if="shipment.expanded" ng-click="shipment.expanded = false">-</button>
           <button ng-if="!shipment.expanded" ng-click="shipment.expanded = true">+</button>
           </td>
           <td><input type="checkbox" /></td>
           <td><button class="btnRate">$2000</button></td>
-              <td> {{shipment.id}} </td>
-              <td> {{shipment.pickup_facility_name}} </td>
-              <td> {{shipment.pickup_address}} </td>
-              <td> {{shipment.pickup_city}} </td>
-              <td> {{shipment.pickup_state}} </td>
-              <td> {{shipment.pickup_zip}} </td>
-              <td> {{shipment.pickup_phone}} </td>
-              <td> {{shipment.pickup_email}} </td>      
-              <td> {{shipment.pickup_date}} </td>
-              <td> {{shipment.delivery_date}} </td>
-              <td> {{shipment.quantity}} </td>
-              <td> {{shipment.unit}} </td>
-              <td> {{shipment.weight}} </td>
-              <td> {{shipment.trailer}} </td>
-              <td> {{shipment.temperature}} </td>
-              <td> {{shipment.size}} </td>
-              <td> {{shipment.delivery_facility_name}} </td>
-              <td> {{shipment.delivery_address}} </td>
-              <td> {{shipment.delivery_city}} </td>
-              <td> {{shipment.delivery_state}} </td>
-              <td> {{shipment.delivery_zip}} </td>
-              <td> {{shipment.delivery_phone}} </td>
-              <td> {{shipment.delivery_email}} </td>
+              <td> {{shipment.shipment_id}} </td>
+              <td> {{shipment.shipment_carrier}} </td>
+              <td> {{shipment.shipment_rate}} </td>
               
               <td> <button ng-click="$ctrl.removeShipment(shipment)"> x </button> </td>
           </tr>
