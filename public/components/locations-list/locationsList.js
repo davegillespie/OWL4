@@ -28,13 +28,13 @@ function LocationsListController(LocationsService) {
 
 
 
-
-    // ctrl.updateLocation = (location, quantity) => {
+    // ctrl.updateLocation = (location) => {
+    // // ctrl.updateLocation = (location, quantity) => {
     
     //   // let locationUpdate = {
     //   //   quantity: location.quantity
     //   // } 
-    //   location.quantity = quantity;
+    //   // location.quantity = quantity;
   
     //   LocationsService.updatelocation(location)
     //   .then( (data) => {
@@ -57,12 +57,10 @@ function LocationsListController(LocationsService) {
   .module('owlApp')
   .component('locationsList', {
     template: `
-    <section id="locations">
-        <h3>Locations</h3>
-
+    <section id="locations-list">
+    
         <table>
             <tr>
-                <th></th>
                 <th>Location ID</th>
                 <th>Vendor Name</th>
                 <th>Vendor Location Code</th>
@@ -74,10 +72,10 @@ function LocationsListController(LocationsService) {
                 <th>City</th>
                 <th>State</th>
                 <th>Zip</th>
+                <th>Remove</th>
             </tr>
 
             <tr ng-repeat="location in $ctrl.locationsList | orderBy: 'vendor_name'">
-                <td> <a class="orderbtn"></a> </td>
                 <td> {{location.loc_id}} </td>
                 <td> {{location.vendor_name}} </td>
                 <td> {{location.vendor_loc_code}} </td>
@@ -89,6 +87,8 @@ function LocationsListController(LocationsService) {
                 <td> {{location.city}} </td>
                 <td> {{location.state}} </td>
                 <td> {{location.zip}} </td>
+                
+                <td> <button ng-click="$ctrl.removeLocation(location)"> x </button> </td>
             </tr>
             
         

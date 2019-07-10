@@ -52,7 +52,7 @@ angular
 
         <h4>NEW ORDER FORM:</h4>
         <p>Pickup Details</p>
-            <input class="input-item" type="number" placeholder="Location ID" ng-model="newLocation.id"/>
+            <input class="input-item" type="number" placeholder="Location ID" ng-model="newLocation.loc_id"/>
             <input class="input-item" type="text" placeholder="Vendor" ng-model="newLocation.vendor_name"/>
             <input class="input-item" type="text" placeholder="Vendor Location Code" ng-model="newLocation.vendor_loc_code"/>
             <input class="input-item" type="text" placeholder="Facility Name" ng-model="newLocation.facility_name"/>

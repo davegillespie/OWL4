@@ -5,16 +5,16 @@ function LocationsService($http, $q) {
 
     service.locationsList = [];
  
-    service.addLocation = (location) => {
-        console.log(location);
-        service.locationsList.push(location);  // This part works
+    service.addLocation = (locations) => {
+        console.log(locations);
+        service.locationsList.push(locations);  // This part works
         
         function locationSuccess (res) { 
             // return res.data.data;
-            return res.location;
+            return res.locations;
           }
           
-            $http.post('/locations-router', location)
+            $http.post('/locations-router', locations)
             .then( (success) => {
                 service.locations = {};
                 // service.locationsList = data;
@@ -23,16 +23,16 @@ function LocationsService($http, $q) {
             }); 
     }
 
-    service.removeLocation = (location) => {
+    service.removeLocation = (locations) => {
         return $q ( (resolve, reject) => {
             $http({
-                url: '/locations-router/' + location.loc_id,
+                url: '/locations-router/' + locations.loc_id,
                 method: 'DELETE',
-                data: location
+                data: locations
             })
-            .then( (location) => {
-                    console.log(location);
-                resolve(getSuccess(location));
+            .then( (locations) => {
+                    console.log(locations);
+                resolve(getSuccess(locations));
                 }); 
             });
     
@@ -54,15 +54,15 @@ function LocationsService($http, $q) {
 
     }
 
-    // service.updateLocation = (location) => {
-    //     return $http({
-    //       url: "/locations-router/" + location.id,
-    //       method: "PUT",
-    //       data: location
-    //     }).then((response) => {
-    //       return response.data;
-    //     });
-    //   }
+    service.updateLocation = (locations) => {
+        return $http({
+          url: "/locations-router/" + locations.loc_id,
+          method: "PUT",
+          data: locations
+        }).then((response) => {
+          return response.data;
+        });
+      }
 
 
 

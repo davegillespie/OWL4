@@ -27,9 +27,9 @@ angular.module("owlApp")
         // Load the orders component
         template: "<orders></orders>"
       })
-      .when("/shipments", {
+      .when("/shipments-list", {
         // Load the shipments component
-        template: "<shipments></shipments>"
+        template: "<shipments-list></shipments-list>"
       })
       .when("/dispatches", {
         // Load the dispatches component

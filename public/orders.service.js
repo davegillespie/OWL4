@@ -2,10 +2,8 @@
 function OrdersService($http, $q) {
     const service = this;
 
-        /**
-     * Call https://www.reddit.com/r/aww/.json
-     * and set ctrl.feed to be the results
-     */
+ 
+// CRUD FOR ORDERS:
 
     service.ordersList = [];
  
@@ -67,6 +65,77 @@ function OrdersService($http, $q) {
           return response.data;
         });
       }
+
+
+
+
+// CRUD FOR SHIPMENTS:
+
+      service.shipmentsList = [];
+
+    //   service.shipment = [];
+
+      service.addShipment = (shipment) => {
+          console.log(shipment);
+          service.shipmentsList.push(shipment);  // This part works
+          
+          function genericSuccess (res) { 
+              // return res.data.data;
+              return res.shipment;
+            }
+            
+              $http.post('/shipments-router', shipment)
+              .then( (success) => {
+                  service.shipments = {};
+                  // service.shipmentsList = data;
+                  // console.log(data);
+              return genericSuccess(success);
+              }); 
+      }
+  
+      service.removeShipment = (shipment) => {
+          return $q ( (resolve, reject) => {
+              $http({
+                  url: '/shipments-router/' + shipment.id,
+                  method: 'DELETE',
+                  data: shipment
+              })
+              .then( (shipment) => {
+                      console.log(shipment);
+                  resolve(getSuccess(shipment));
+                  }); 
+              });
+      
+      }
+  
+      service.getShipmentsTable = () => {
+          return $q ( (resolve, reject) => {
+  
+          function getSuccess (res) { 
+              return res.data;
+            }
+  
+          $http.get('/shipments-router')
+              .then( (response) => {
+                  console.log(response);
+              resolve(getSuccess(response));
+              }); 
+          });
+  
+      }
+  
+      service.updateShipment = (shipment) => {
+          return $http({
+            url: "/shipments-router/" + shipment.id,
+            method: "PUT",
+            data: shipment
+          }).then((response) => {
+            return response.data;
+          });
+        }
+  
+
+
 
 
 

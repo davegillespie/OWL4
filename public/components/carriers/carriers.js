@@ -18,8 +18,8 @@ function CarriersController($scope, CarriersService) {
     }
 
 
-    $scope.removeCarrier = (item) => {
-        var i = $scope.carriers.indexOf(item);
+    $scope.removeCarrier = (carrier) => {
+        var i = $scope.carriers.indexOf(carrier);
         $scope.carriers.splice(i, 1);
         CarriersService.removeCarrier($scope.carriers);
         console.log(carriers);

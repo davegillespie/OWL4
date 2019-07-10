@@ -95,11 +95,58 @@ app.get("/orders-router", (req, res) => {
 
 
 
+// CRUD FOR SHIPMENTS: 
+
+
+app.post("/shipments-router", (req, res) => {
+    let data = req.body[0];
+    let id = parseInt(request.params.id)
+    console.log(data);
+
+        pool.query("SELECT orders.id, orders.pickup_facility_name, orders.pickup_address, orders.pickup_city, orders.pickup_state, orders.pickup_zip, orders.pickup_phone, orders.pickup_email, orders.pickup_date, orders.delivery_date, orders.quantity, orders.unit, orders.weight, orders.trailer, orders.temperature, orders.size, orders.delivery_facitlity_name, orders.delivery_address, orders.delivery_city, orders.delivery_state, orders.delivery_zip, orders.delivery_phone, orders.delivery_email, shipments.id, shipments.pickup_facility_name, shipments.pickup_address, shipments.pickup_city, shipments.pickup_state, shipments.pickup_zip, shipments.pickup_phone, shipments.pickup_email, shipments.pickup_date, shipments.delivery_date, shipments.quantity, shipments.unit, shipments.weight, shipments.trailer, shipments.temperature, shipments.size, shipments.delivery_facitlity_name, shipments.delivery_address, shipments.delivery_city, shipments.delivery_state, shipments.delivery_zip,shipments.delivery_phone, shipments.delivery_email FROM orders LEFT JOIN shipments ON orders.pickup_facility_name = shipments.pickup_facility_name WHERE shipments.id IS NULL", 
+        [data.id]
+        )
+        .then( (result) => {
+            res.send(result.rows);
+        })
+});
+
+app.get("/shipments-router", (req, res) => {
+    pool.query("SELECT * FROM shipments ORDER BY id;")
+    .then( (result) => {
+        res.send(result.rows);
+    })
+  });
+
+
+ // accept DELETE request at URI: /shipmentsRouter
+ app.delete('/shipments-router/:id', (req, res) => {
+    console.log(req.body); // <-- this is the shipmentData that has been extracted from the request
+    res.send('Deleting shipmentsRouter..');
+
+    pool.query(
+        "DELETE FROM shipments WHERE id = $1::int", [req.params.id])
+    .then( () => {
+        res.status(202); // Deleted
+        res.send('Successfully deleted shipment!');
+    })
+});
+
+
+
+
+
+
+
+
+
+
+
 // CRUD FOR LOCATIONS: 
 
 app.post("/locations-router", (req, res) => {
     let locationData = req.body[0];
-    let locationId = locationData.loc_id;
+    let loc_id = locationData.loc_id;
     console.log(locationData);
 
     // pool.query(
@@ -155,7 +202,7 @@ app.get("/locations-router", (req, res) => {
     res.send('Deleting locationsRouter..');
 
     pool.query(
-        "DELETE FROM locations WHERE loc_id = $1::int", [req.params.locationId])
+        "DELETE FROM locations WHERE loc_id = $1::int", [req.params.loc_id])
     .then( () => {
         res.status(202); // Deleted
         res.send('Successfully deleted location!');

@@ -2,10 +2,6 @@
 function CarriersService($http, $q) {
     const service = this;
 
-        /**
-     * Call https://www.reddit.com/r/aww/.json
-     * and set ctrl.feed to be the results
-     */
 
     service.carriersList = [];
  
@@ -20,7 +16,7 @@ function CarriersService($http, $q) {
           
             $http.post('/carriers-router', carriers)
             .then( (success) => {
-                service.carrierss = {};
+                service.carriers = {};
                 // service.carriersList = data;
                 // console.log(data);
             return carriersSuccess(success);
