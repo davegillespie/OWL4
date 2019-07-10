@@ -22,8 +22,8 @@ function ShipmentsListController(OrdersService) {
     ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
 
     OrdersService.getShipmentsTable()
-    .then( (shipment) => {
-      ctrl.shipmentsList = shipment;
+    .then( (data) => {
+      ctrl.shipmentsList = data;
     });
 
 
