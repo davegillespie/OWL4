@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const secret = require("./secret.js"); // imports my secret.js which contains my password for the db
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -7,7 +8,7 @@ app.use(express.static("public"));
 const pg = require("pg");
 const pool = new pg.Pool({
     user: "postgres",
-    password: "Yeti2019",
+    password: secret.password, // authentication
     host: "localhost",
     port: 5432,
     database: "OWL",

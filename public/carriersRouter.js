@@ -1,9 +1,5 @@
-// this is the routes file
-
-// Import express module
 const express = require('express');
 
-// const cartData = require('./cartData');
 
 // Add router for carriersRouter
 // This lets us to split our API routes
