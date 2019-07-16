@@ -2,23 +2,24 @@
 function ShipmentsListController(OrdersService) {
     let ctrl = this;
 
-    ctrl.removeShipment = (shipment) => {
-      console.log('here');
-      console.log(shipment.data, shipment);
+    // ctrl.removeShipment = (shipment) => {
+    //   console.log('here');
+    //   console.log(shipment.data, shipment);
 
-      OrdersService.removeShipment(shipment)
-      .then( () => {
+    //   OrdersService.removeShipment(shipment)
+    //   .then( () => {
       
-        OrdersService.getShipmentsTable()
-        .then( (data) => {
-          ctrl.shipmentsList = data;
-        });
+    //     OrdersService.getShipmentsTable()
+    //     .then( (data) => {
+    //       ctrl.shipmentsList = data;
+    //     });
   
-      })
-    }
+    //   })
+    // }
     
+    ctrl.ordersList = OrdersService.ordersList;
     ctrl.shipmentsList = OrdersService.shipmentsList;
-    // ctrl.removeshipment = OrdersService.removeShipment;
+    ctrl.removeShipment = OrdersService.removeShipment;
     ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
 
     OrdersService.getShipmentsTable()
@@ -49,7 +50,7 @@ function ShipmentsListController(OrdersService) {
     }
 
     
-   
+
 
 
 }

@@ -33,14 +33,6 @@ function OrdersController($scope, OrdersService) {
     }
 
 
-    $scope.removeItem = (item) => {
-        var i = $scope.items.indexOf(item);
-        $scope.items.splice(i, 1);
-        OrdersService.removeItem($scope.items);
-        console.log(items);
-    }
-
-    $scope.items = [];
     
 
     // $scope.shipment = [];
@@ -63,7 +55,14 @@ function OrdersController($scope, OrdersService) {
     $scope.shipment = [];
 
 
-
+    $scope.removeShipment = (shipment) => {
+        var i = $scope.shipments.indexOf(shipment);
+        $scope.shipments.splice(i, 1);
+        OrdersService.removeShipment($scope.shipments);
+        console.log(shipment);
+    }
+  
+    $scope.shipments = [];
 
 
 }   

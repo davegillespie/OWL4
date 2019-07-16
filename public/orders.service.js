@@ -93,16 +93,16 @@ function OrdersService($http, $q) {
               }); 
       }
   
-      service.removeShipment = (shipment) => {
+      service.removeShipment = (shipments) => {
           return $q ( (resolve, reject) => {
               $http({
-                  url: '/shipments-router/' + shipment.id,
+                  url: '/shipments-router/' + shipments.shipment_id,
                   method: 'DELETE',
-                  data: shipment
+                  data: shipments
               })
-              .then( (shipment) => {
-                      console.log(shipment);
-                  resolve(getSuccess(shipment));
+              .then( (shipments) => {
+                      console.log(shipments);
+                  resolve(shipments);
                   }); 
               });
       
