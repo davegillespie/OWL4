@@ -94,31 +94,32 @@ function OrdersService($http, $q) {
       }
   
       service.removeShipment = (shipment) => {
-          return $q ( (resolve, reject) => {
-              $http({
-                  url: '/shipments-router/' + shipment.id,
-                  method: 'DELETE',
-                  data: shipment
-              })
-              .then( (shipment) => {
-                      console.log(shipment);
-                  resolve(getSuccess(shipment));
-                  }); 
-              });
-      
+        console.log(`orders.service:\nshipment: ${shipment}`);
+        console.log("shipment.id: "+shipment.id)
+        $http({
+            url: '/shipments-router/' + shipment.id,
+            method: 'DELETE',
+            data: shipment
+        })
+        .then( (shipment) => {
+          console.log(shipment);
+        })
+        .catch( (err)=>{
+          console.error(err);
+        }); 
       }
   
       service.getShipmentsTable = () => {
           return $q ( (resolve, reject) => {
   
-          function getSuccess (res) { 
-              return res.data;
-            }
-  
           $http.get('/shipments-router')
               .then( (response) => {
-                  console.log(response);
-              resolve(getSuccess(response));
+                console.log(response);
+                resolve(response.data);
+              })
+              .catch( (err)=>{
+                console.error(err);
+                reject(err);
               }); 
           });
   
