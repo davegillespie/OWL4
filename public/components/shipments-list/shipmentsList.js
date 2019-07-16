@@ -3,6 +3,9 @@ function ShipmentsListController(OrdersService) {
     let ctrl = this;
     ctrl.service = OrdersService;
     ctrl.shipmentsList = ctrl.service.shipmentsList;
+    ctrl.pickupInfo =  false;
+    ctrl.shipmentInfo = false;
+    ctrl.deliveryInfo = false;
 
 
     ctrl.removeShipment = (shipment) => {
@@ -59,7 +62,12 @@ function ShipmentsListController(OrdersService) {
     template: `
     <section id="shipments-list">
       
-  
+    <div id="orderToggleBox">
+      <label class="orderCheckboxLabel">Pickup Information <input class="orderCheckbox" type="checkbox" ng-model="$ctrl.pickupInfo"></label>
+      <label class="orderCheckboxLabel">Shipment Information <input class="orderCheckbox" type="checkbox" ng-model="$ctrl.shipmentInfo"></label>
+      <label class="orderCheckboxLabel">Delivery Information <input class="orderCheckbox" type="checkbox" ng-model="$ctrl.deliveryInfo"></label>
+    </div>
+
     <table>
       <thead>
           <tr>
@@ -67,31 +75,31 @@ function ShipmentsListController(OrdersService) {
             <th></th>
             <th>Rate</h>        
               <th>Order ID</th>
-              <th>Pickup Facility Name</th>
-              <th>Pickup Address</th>
-              <th>Pickup City</th>
-              <th>Pickup State</th>
-              <th>Pickup Zip</th>
-              <th>Pickup Phone</th>
-              <th>Pickup Email</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup Facility Name</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup Address</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup City</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup State</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup Zip</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup Phone</th>
+              <th ng-if="$ctrl.pickupInfo">Pickup Email</th>
 
-              <th>Pickup Date</th>
-              <th>Delivery Date</th>
+              <th ng-if="$ctrl.shipmentInfo">Pickup Date</th>
+              <th ng-if="$ctrl.shipmentInfo">Delivery Date</th>
 
-              <th>Quantity</th>
-              <th>Unit</th> 
-              <th>Weight</th>
-              <th>Trailer</th>
-              <th>Temperature</th> 
-              <th>Size</th>
+              <th ng-if="$ctrl.shipmentInfo">Quantity</th>
+              <th ng-if="$ctrl.shipmentInfo">Unit</th> 
+              <th ng-if="$ctrl.shipmentInfo">Weight</th>
+              <th ng-if="$ctrl.shipmentInfo">Trailer</th>
+              <th ng-if="$ctrl.shipmentInfo">Temperature</th> 
+              <th ng-if="$ctrl.shipmentInfo">Size</th>
 
-              <th>Delivery Facility Name</th>
-              <th>Delivery Address</th> 
-              <th>Delivery City</th>
-              <th>Delivery State</th>
-              <th>Delivery Zip</th> 
-              <th>Delivery Phone</th>
-              <th>Delivery Email</th>
+              <th ng-if="$ctrl.deliveryInfo">Delivery Facility Name</th>
+              <th ng-if="$ctrl.deliveryInfo">Delivery Address</th> 
+              <th ng-if="$ctrl.deliveryInfo">Delivery City</th>
+              <th ng-if="$ctrl.deliveryInfo">Delivery State</th>
+              <th ng-if="$ctrl.deliveryInfo">Delivery Zip</th> 
+              <th ng-if="$ctrl.deliveryInfo">Delivery Phone</th>
+              <th ng-if="$ctrl.deliveryInfo">Delivery Email</th>
               <th>Carrier</th>
               <th>Rate</th>
 
@@ -106,32 +114,30 @@ function ShipmentsListController(OrdersService) {
           </td>
           <td><input type="checkbox" /></td>
 
-          																						Carrier	Rate	Remove
-
           <td><button class="btnRate">$2000</button></td>
               <td> {{shipment.shipment_id}} </td>
-              <td> Pickup Facility Name </td>
-              <td> Pickup Address </td>
-              <td> Pickup City </td>
-              <td> Pickup State </td>
-              <td> Pickup Zip </td>
-              <td> Pickup Phone </td>
-              <td> Pickup Email </td>
-              <td> Pickup Date </td>
-              <td> Delivery Date </td>
-              <td> Quantity </td>
-              <td> Unit </td>
-              <td> Weight </td>
-              <td> Trailer </td>
-              <td> Temperature </td>
-              <td> Size </td>
-              <td> Delivery Facility Name </td>
-              <td> Delivery Address </td>
-              <td> Delivery City </td>
-              <td> Delivery State </td>
-              <td> Delivery Zip </td>
-              <td> Delivery Phone </td>
-              <td> Delivery Email </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup Facility Name </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup Address </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup City </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup State </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup Zip </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup Phone </td>
+              <td ng-if="$ctrl.pickupInfo"> Pickup Email </td>
+              <td ng-if="$ctrl.shipmentInfo"> Pickup Date </td>
+              <td ng-if="$ctrl.shipmentInfo"> Delivery Date </td>
+              <td ng-if="$ctrl.shipmentInfo"> Quantity </td>
+              <td ng-if="$ctrl.shipmentInfo"> Unit </td>
+              <td ng-if="$ctrl.shipmentInfo"> Weight </td>
+              <td ng-if="$ctrl.shipmentInfo"> Trailer </td>
+              <td ng-if="$ctrl.shipmentInfo"> Temperature </td>
+              <td ng-if="$ctrl.shipmentInfo"> Size </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery Facility Name </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery Address </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery City </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery State </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery Zip </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery Phone </td>
+              <td ng-if="$ctrl.deliveryInfo"> Delivery Email </td>
               <td> {{shipment.shipment_carrier}} </td>
               <td> {{shipment.shipment_rate}} </td>
               <td> <button ng-click="$ctrl.removeShipment(shipment)"><i class="material-icons">close</i></button> </td>
