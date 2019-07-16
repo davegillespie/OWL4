@@ -144,6 +144,10 @@ a:hover, a:active {
 }
 
 /* Derek Styling Start */
+#shipments-list{
+  position: relative;
+  padding-top: 30px;
+}
 
 #orderToggleBox{
   display: flex;
@@ -165,7 +169,7 @@ a:hover, a:active {
     text-align: center;
     flex-basis: 1;
     background-color: rgb(211, 211, 211);
-    padding: 3px;
+    padding: 5px;
     border-radius: 5px;
     margin: 0px 5px 0px 5px;
   }

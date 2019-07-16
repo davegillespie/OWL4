@@ -3,9 +3,9 @@ function ShipmentsListController(OrdersService) {
     let ctrl = this;
     ctrl.service = OrdersService;
     ctrl.shipmentsList = ctrl.service.shipmentsList;
-    ctrl.pickupInfo =  false;
-    ctrl.shipmentInfo = false;
-    ctrl.deliveryInfo = false;
+    ctrl.pickupInfo =  false; // displays minimal info initially
+    ctrl.shipmentInfo = false; // displays minimal info initially
+    ctrl.deliveryInfo = false; // displays minimal info initially
 
 
     ctrl.removeShipment = (shipment) => {
