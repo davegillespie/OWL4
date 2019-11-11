@@ -20,7 +20,7 @@ function OrdersService($http, $q) {
             .then( (success) => {
                 service.items = {};
                 // service.ordersList = data;
-                // console.log(data);
+                console.log(data);
             return genericSuccess(success);
             }); 
     }

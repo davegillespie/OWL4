@@ -2,12 +2,12 @@
 
 const express = require("express");
 const router = express.Router();  // Router has to be capital
-const secret = require("./secret.js"); // imports my secret.js which contains my password for the db
+// const secret = require("./secret.js"); // imports my secret.js which contains my password for the db
 
 const pg = require("pg");
 const pool = new pg.Pool({
     user: "postgres",
-    password: secret.password,
+    password: "Yeti2019",
     host: "localhost",
     port: 5432,
     database: "OWL",
