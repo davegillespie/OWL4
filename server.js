@@ -98,7 +98,7 @@ app.get("/orders-router", (req, res) => {
 // CRUD FOR SHIPMENTS: 
 
 
-app.post("/orders-router", (req, res) => {
+app.post("/shipments-router", (req, res) => {
     let data = req.body[0];
     let id = data.id;
     console.log(data);

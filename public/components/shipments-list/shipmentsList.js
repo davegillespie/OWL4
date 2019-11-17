@@ -1,15 +1,15 @@
 "use strict";
-function ShipmentsListController(OrdersService) {
+function ShipmentsListController(ShipmentsService) {
     let ctrl = this;
 
     ctrl.removeShipment = (shipment) => {
       console.log('here');
       console.log(shipment.data, shipment);
 
-      OrdersService.removeShipment(shipment)
+      ShipmentsService.removeShipment(shipment)
       .then( () => {
       
-        // OrdersService.getShipmentsTable()
+        // ShipmentsService.getShipmentsTable()
         // .then( (data) => {
         //   ctrl.shipmentsList = data;
         // });
@@ -17,11 +17,11 @@ function ShipmentsListController(OrdersService) {
       })
     }
     
-    ctrl.shipmentsList = OrdersService.shipmentsList;
-    // ctrl.removeshipment = OrdersService.removeShipment;
-    ctrl.getShipmentsTable = OrdersService.getShipmentsTable;
+    ctrl.shipmentsList = ShipmentsService.shipmentsList;
+    // ctrl.removeshipment = ShipmentsService.removeShipment;
+    ctrl.getShipmentsTable = ShipmentsService.getShipmentsTable;
 
-    OrdersService.getShipmentsTable()
+    ShipmentsService.getShipmentsTable()
     .then( (data) => {
       ctrl.shipmentsList = data;
       console.log(data);
@@ -38,7 +38,7 @@ function ShipmentsListController(OrdersService) {
       // } 
       shipment.quantity = quantity;
   
-      OrdersService.updateShipment(shipment)
+      ShipmentsService.updateShipment(shipment)
       .then( (data) => {
         ctrl.shipmentsList = data;
         ctrl.getShipmentsTable();

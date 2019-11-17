@@ -1,5 +1,5 @@
 "use strict";
-function OrdersListController(OrdersService, $scope) {
+function OrdersListController(OrdersService, ShipmentsService, $scope) {
     let ctrl = this;
 
     ctrl.removeItem = (item) => {
@@ -90,7 +90,7 @@ var orderSelected = [];
                 $scope.ordersList = [];
                 orderSelected.push();
                 console.log("orderSelected", orderSelected);
-                OrdersService.addShipment(orderSelected);
+                ShipmentsService.addShipment(orderSelected);
                 console.log('orderSelected', orderSelected);
             }
             // else {
