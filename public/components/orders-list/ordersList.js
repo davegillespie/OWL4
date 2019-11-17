@@ -68,33 +68,35 @@ function OrdersListController(OrdersService, $scope) {
 // }
 
 
-var arr = [];
-        $scope.ordersList = [{
-          id: 'test',
-          pickup_facility_name: 'fdsfd'
-        }];
+var orderSelected = [];
+        // $scope.ordersList = [{
+        //   id: 'test',
+        //   pickup_facility_name: 'fdsfd'
+        // }];
         $scope.getIndex = function (item, isTrue) {
             if (isTrue) {
               console.log("item", item);
-                arr.push(item);
-                console.log("item", arr);
+                orderSelected.push(item);
+                console.log("item", orderSelected);
             }
             else {
-                var index = arr.indexOf(item);
-                arr.splice(index, 1);
+                var index = orderSelected.indexOf(item);
+                orderSelected.splice(index, 1);
                 console.log("item", index);
             }
         };
-        $scope.addShip = function (item, isMaster) {
+        $scope.addShipment = function (isMaster) {
             if (!isMaster) {
                 $scope.ordersList = [];
-                arr.push(item);
-                console.log("item", arr);
+                orderSelected.push();
+                console.log("orderSelected", orderSelected);
+                OrdersService.addShipment(orderSelected);
+                console.log('orderSelected', orderSelected);
             }
             // else {
 
-            //     for (var i = 0; i > arr.length; i++) {
-            //         var rec = $scope.ordersList.filter(function (item) { return item == arr[i] });
+            //     for (var i = 0; i > orderSelected.length; i++) {
+            //         var rec = $scope.ordersList.filter(function (item) { return item == orderSelected[i] });
             //         var idx = $scope.ordersList.indexOf(rec[0]);
             //         $scope.ordersList.splice(idx, 1);
             //         console.log("item", item);
@@ -103,8 +105,8 @@ var arr = [];
                 // }
                 // console.log("here");
             // };
-            // arr = [];
-            // console.log("here", arr);
+            // orderSelected = [];
+            // console.log("here", orderSelected);
         };
 
 }
@@ -119,7 +121,7 @@ var arr = [];
     <table>
       <thead>
           <tr>
-              <th><input type="checkbox" ng-model="master"/><input type="button" class="btn ng-model="master" btn-danger btn-xs" ng-click="addShip(master)" /></th>
+              <th><input type="checkbox" ng-model="master"/><input type="button" class="btn ng-model="master" btn-danger btn-xs" ng-click="addShipment(master)" /></th>
               <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
