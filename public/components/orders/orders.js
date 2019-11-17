@@ -49,18 +49,21 @@ function OrdersController($scope, OrdersService) {
     //     OrdersService.addShipment(shipment);
     // }
 
-    $scope.addShipment = () => {
-        $scope.shipment.push({
-            shipment_id: 2,
-            shipment_carrier: 'RR',
-            shipment_rate: 1700
-          });
-        console.log("working", $scope.shipment);
-        OrdersService.addShipment($scope.shipment);
-    }
 
 
-    $scope.shipment = [];
+
+    // $scope.addShipment = () => {
+    //     $scope.shipment.push({
+    //         shipment_id: 2,
+    //         shipment_carrier: 'RR',
+    //         shipment_rate: 1700
+    //       });
+    //     console.log("working", $scope.shipment);
+    //     OrdersService.addShipment($scope.shipment);
+    // }
+
+
+    // $scope.shipment = [];
 
 
 
@@ -83,7 +86,7 @@ function OrdersController($scope, OrdersService) {
             <h3>Orders</h3>  
             <ul class="insideheader-nav">       
                 <li><button ng-click="showTheForm = !showTheForm" class="btnCreate">Create Order</button></li> 
-                <li><button class="shipmentbtn" ng-click="addShipment(shipment)">Create Shipment</button></li>       
+                <li><button class="shipmentbtn" ng-click="">Create Shipment</button></li>       
             </ul>   
         </div>
 

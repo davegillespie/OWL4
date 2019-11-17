@@ -1,5 +1,5 @@
 "use strict";
-function OrdersListController(OrdersService) {
+function OrdersListController(OrdersService, $scope) {
     let ctrl = this;
 
     ctrl.removeItem = (item) => {
@@ -51,40 +51,61 @@ function OrdersListController(OrdersService) {
 
 
 
-    ctrl.addShipment = () => {
-      ctrl.shipment.push({
-          // id: ctrl.shipment.id,
-          // pickup_facility_name: ctrl.shipment.pickup_facility_name,
-          // pickup_address: ctrl.shipment.pickup_address,
-          // pickup_city: ctrl.shipment.pickup_city,
-          // pickup_state: ctrl.shipment.pickup_state,
-          // pickup_zip: ctrl.shipment.pickup_zip,
-          // pickup_phone: ctrl.shipment.pickup_phone,
-          // pickup_email: ctrl.shipment.pickup_email,
-          // pickup_date: ctrl.shipment.pickup_date,
-          // delivery_date: ctrl.shipment.delivery_date,
-          // quantity: ctrl.shipment.quantity,
-          // unit: ctrl.shipment.unit,
-          // weight: ctrl.shipment.weight,
-          // trailer: ctrl.shipment.trailer,
-          // temperature: ctrl.shipment.temperature,
-          // size: ctrl.shipment.size,
-          // delivery_facility_name: ctrl.shipment.delivery_facitlity_name,
-          // delivery_address: ctrl.shipment.delivery_address,
-          // delivery_city: ctrl.shipment.delivery_city,
-          // delivery_state: ctrl.shipment.delivery_state,
-          // delivery_zip: ctrl.shipment.delivery_zip,
-          // delivery_phone: ctrl.shipment.delivery_phone,
-          // delivery_email: ctrl.shipment.delivery_email
-        });
-      console.log("working", ctrl.shipment);
-      OrdersService.addShipment(ctrl.shipment);
-  }
+  //   ctrl.addShipment = () => {
+  //     ctrl.orderSelected.push();
+  //     console.log("working", ctrl.orderSelected);
+  //     OrdersService.addShipment(ctrl.orderSelected);
+  // }
+
+// ctrl.addRow = (orderSelected) => {
+//   console.log("orderSelected", orderSelected);
+  
+// } 
+
+// ctrl.addShipment = (orderSelected) => {
+//   console.log("addShipment", orderSelected);
+// // OrdersService.addShipment(orderSelected);
+// }
 
 
+var arr = [];
+        $scope.ordersList = [{
+          id: 'test',
+          pickup_facility_name: 'fdsfd'
+        }];
+        $scope.getIndex = function (item, isTrue) {
+            if (isTrue) {
+              console.log("item", item);
+                arr.push(item);
+                console.log("item", arr);
+            }
+            else {
+                var index = arr.indexOf(item);
+                arr.splice(index, 1);
+                console.log("item", index);
+            }
+        };
+        $scope.addShip = function (item, isMaster) {
+            if (!isMaster) {
+                $scope.ordersList = [];
+                arr.push(item);
+                console.log("item", arr);
+            }
+            // else {
 
-   
-
+            //     for (var i = 0; i > arr.length; i++) {
+            //         var rec = $scope.ordersList.filter(function (item) { return item == arr[i] });
+            //         var idx = $scope.ordersList.indexOf(rec[0]);
+            //         $scope.ordersList.splice(idx, 1);
+            //         console.log("item", item);
+            //         console.log("rec", rec);
+            //         console.log("item", idx)
+                // }
+                // console.log("here");
+            // };
+            // arr = [];
+            // console.log("here", arr);
+        };
 
 }
   
@@ -98,7 +119,7 @@ function OrdersListController(OrdersService) {
     <table>
       <thead>
           <tr>
-              <th></th>         
+              <th><input type="checkbox" ng-model="master"/><input type="button" class="btn ng-model="master" btn-danger btn-xs" ng-click="addShip(master)" /></th>
               <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
@@ -107,17 +128,14 @@ function OrdersListController(OrdersService) {
               <th>Pickup Zip</th>
               <th>Pickup Phone</th>
               <th>Pickup Email</th>
-
               <th>Pickup Date</th>
               <th>Delivery Date</th>
-
               <th>Quantity</th>
               <th>Unit</th> 
               <th>Weight</th>
               <th>Trailer</th>
               <th>Temperature</th> 
               <th>Size</th>
-
               <th>Delivery Facility Name</th>
               <th>Delivery Address</th> 
               <th>Delivery City</th>
@@ -131,7 +149,7 @@ function OrdersListController(OrdersService) {
       </thead>
       <tbody>
           <tr ng-repeat="item in $ctrl.ordersList | orderBy: 'id'">
-              <td> <input type="checkbox" data-checklist-model="shipment" /> </td>
+              <td> <input type="checkbox" ng-checked="master" ng-model="isTrue" ng-change="getIndex(item, isTrue)" </td>
               <td> {{item.id}} </td>
               <td> {{item.pickup_facility_name}} </td>
               <td> {{item.pickup_address}} </td>

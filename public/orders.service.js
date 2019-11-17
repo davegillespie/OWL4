@@ -73,24 +73,38 @@ function OrdersService($http, $q) {
 
       service.shipmentsList = [];
 
-    //   service.shipment = [];
-
-      service.addShipment = (shipment) => {
-          console.log(shipment);
-          service.shipmentsList.push(shipment);  // This part works
+      service.orderSelected = [
           
+      ];
+
+      service.addShipment = (orderSelected) => {
+          console.log(orderSelected);
+        //   service.shipmentsList.push(orderSelected);  // This part works
+ 
           function genericSuccess (res) { 
-              // return res.data.data;
-              return res.shipment;
-            }
-            
-              $http.post('/shipments-router', shipment)
-              .then( (success) => {
-                  service.shipment =  {};
-                //   service.shipmentsList = data;
-                //   console.log(data);
-              return genericSuccess(success);
-              }); 
+            console.log("right before http", res);
+              return res.data.data;
+            //   return res.orderSelected;
+          }
+            //   $http.post('/shipments-router', orderSelected)
+            //   .then( (success) => {
+            //       service.orderSelected =  {};
+            //     //   service.shipmentsList = data;
+            //     //   console.log(data);
+            //   return genericSuccess(success);
+            //   }); 
+           
+                return $q ( (resolve, reject) => {
+                    $http({
+                        url: '/shipments-router/' + orderSelected.id,
+                        method: 'POST',
+                        data: orderSelected
+                    })
+                    .then( (orderSelected) => {
+                            console.log(orderSelected);
+                        resolve(getSuccess(orderSelected));
+                        }); 
+                    });
       }
   
       service.removeShipment = (shipment) => {

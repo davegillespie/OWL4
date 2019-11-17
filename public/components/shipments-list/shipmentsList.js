@@ -9,10 +9,10 @@ function ShipmentsListController(OrdersService) {
       OrdersService.removeShipment(shipment)
       .then( () => {
       
-        OrdersService.getShipmentsTable()
-        .then( (data) => {
-          ctrl.shipmentsList = data;
-        });
+        // OrdersService.getShipmentsTable()
+        // .then( (data) => {
+        //   ctrl.shipmentsList = data;
+        // });
   
       })
     }
@@ -24,14 +24,15 @@ function ShipmentsListController(OrdersService) {
     OrdersService.getShipmentsTable()
     .then( (data) => {
       ctrl.shipmentsList = data;
+      console.log(data);
     });
 
 
 
 
-    // ctrl.updateShipment = (shipment, quantity) => {
-    ctrl.updateShipment = (shipment) => {
-
+    ctrl.updateShipment = (shipment, quantity) => {
+   
+     
       // let shipmentUpdate = {
       //   quantity: shipment.quantity
       // } 
