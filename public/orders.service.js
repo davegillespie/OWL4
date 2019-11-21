@@ -73,9 +73,9 @@ function OrdersService($http, $q) {
 
       service.shipmentsList = [];
 
-      service.orderSelected = [
+    //   service.orderSelected = [
           
-      ];
+    //   ];
 
       service.addShipment = (orderSelected) => {
           console.log(orderSelected);
@@ -86,25 +86,25 @@ function OrdersService($http, $q) {
               return res.data.data;
             //   return res.orderSelected;
           }
-            //   $http.post('/shipments-router', orderSelected)
-            //   .then( (success) => {
-            //       service.orderSelected =  {};
-            //     //   service.shipmentsList = data;
-            //     //   console.log(data);
-            //   return genericSuccess(success);
-            //   }); 
+              $http.post('/shipments-router', orderSelected)
+              .then( (success) => {
+                  service.orderSelected =  {};
+                //   service.shipmentsList = data;
+                //   console.log(data);
+              return genericSuccess(success);
+              }); 
            
-                return $q ( (resolve, reject) => {
-                    $http({
-                        url: '/shipments-router/' + orderSelected.id,
-                        method: 'POST',
-                        data: orderSelected
-                    })
-                    .then( (orderSelected) => {
-                            console.log(orderSelected);
-                        resolve(getSuccess(orderSelected));
-                        }); 
-                    });
+                // return $q ( (resolve, reject) => {
+                //     $http({
+                //         url: '/shipments-router/' + orderSelected.id,
+                //         method: 'POST',
+                //         data: orderSelected
+                //     })
+                //     .then( (orderSelected) => {
+                //             console.log(orderSelected);
+                //         resolve(getSuccess(orderSelected));
+                //         }); 
+                //     });
       }
   
       service.removeShipment = (shipment) => {
