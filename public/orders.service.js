@@ -16,7 +16,7 @@ function OrdersService($http, $q) {
             return res.item;
           }
           
-            $http.post('/orders-router', item)
+            $http.post('./routes/order-routes', item)
             .then( (success) => {
                 service.items = {};
                 // service.ordersList = data;
@@ -28,7 +28,7 @@ function OrdersService($http, $q) {
     service.removeItem = (item) => {
         return $q ( (resolve, reject) => {
             $http({
-                url: '/orders-router/' + item.id,
+                url: './routes/' + item.id,
                 method: 'DELETE',
                 data: item
             })
@@ -47,7 +47,7 @@ function OrdersService($http, $q) {
             return res.data;
           }
 
-        $http.get('/orders-router')
+        $http.get('./routes/order-routes')
             .then( (response) => {
                 console.log(response);
             resolve(getSuccess(response));
@@ -58,7 +58,7 @@ function OrdersService($http, $q) {
 
     service.updateItem = (item) => {
         return $http({
-          url: "/orders-router/" + item.id,
+          url: "./routes/order-routes" + item.id,
           method: "PUT",
           data: item
         }).then((response) => {

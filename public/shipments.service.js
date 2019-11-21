@@ -4,8 +4,6 @@ function ShipmentsService($http, $q) {
 
  
 
-
-
 // CRUD FOR SHIPMENTS:
 
       service.shipmentsList = [];
@@ -21,7 +19,7 @@ function ShipmentsService($http, $q) {
               return res.data.data;
             //   return res.orderSelected;
           }
-              $http.post('/shipments-router', orderSelected)
+              $http.post('/routes/routes/shipment-routes', orderSelected)
               .then( (success) => {
                   service.orderSelected =  {};
                 //   service.shipmentsList = data;
@@ -45,7 +43,7 @@ function ShipmentsService($http, $q) {
       service.removeShipment = (shipment) => {
           return $q ( (resolve, reject) => {
               $http({
-                  url: '/shipments-router/' + shipment.id,
+                  url: '/routes/routes/shipment-routes/' + shipment.id,
                   method: 'DELETE',
                   data: shipment
               })
@@ -64,7 +62,7 @@ function ShipmentsService($http, $q) {
               return res.data;
             }
   
-          $http.get('/shipments-router')
+          $http.get('/routes/routes/shipment-routes/')
               .then( (response) => {
                   console.log(response);
               resolve(getSuccess(response));
@@ -75,7 +73,7 @@ function ShipmentsService($http, $q) {
   
       service.updateShipment = (shipment) => {
           return $http({
-            url: "/shipments-router/" + shipment.id,
+            url: "/routes/routes/shipment-routes/" + shipment.id,
             method: "PUT",
             data: shipment
           }).then((response) => {

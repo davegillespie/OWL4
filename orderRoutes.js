@@ -1,0 +1,72 @@
+const express = require('express');
+const router = express.Router();
+
+
+// CRUD FOR ORDERS:
+
+
+router.get("/order-routes", (req, res) => {
+    pool.query("SELECT * FROM orders ORDER BY id;")
+    .then( (result) => {
+        res.send(result.rows);
+    })
+  });
+
+
+router.post("/order-routes", (req, res) => {
+    let data = req.body[0];
+    let id = data.id;
+    console.log(data);
+
+    // pool.query(
+    //     "INSERT INTO orders (id, product, price, quantity) values($1::int, $2::text, $3::int, $4::int)", 
+    //     [data.id, data.product, data.price, data.quantity]
+    // )
+    pool.query(
+        "INSERT INTO orders (id, pickup_facility_name, pickup_address, pickup_city, pickup_state, pickup_zip, pickup_phone, pickup_email, 	pickup_date, delivery_date, quantity, unit, weight, trailer,temperature, size, delivery_facitlity_name, delivery_address,delivery_city,delivery_state,delivery_zip,delivery_phone,delivery_email) values($1::int, $2::text, $3::text, $4::text, $5::text, $6::text, $7::text, $8::text, $9::date, $10::date, $11::int, $12::text, $13::int, $14::text, $15::text, $16::text, $17::text, $18::text, $19::text, $20::text, $21::text, $22::text, $23::text)", 
+        [data.id, data.pickup_facility_name, data.pickup_address, data.pickup_city, data.pickup_state, data.pickup_zip, data.pickup_phone, data.pickup_email, data.pickup_date, data.delivery_date, data.quantity,data.unit, data.weight, data.trailer, data.temperature,data.size,data.delivery_facility_name, data.delivery_address, data.delivery_city, data.delivery_state, data.delivery_zip, data.delivery_phone, data.delivery_email]
+    )
+    .then( () => {
+        res.status(201); // Created
+        res.send('Successfully added item!');
+    })
+  });
+
+
+
+router.put("/order-routes/:id", (req, res) => {
+    let id = req.params.id;
+
+    // req.params, req.body, req.query
+   // let name = data.name;
+
+    let data = req.body;
+        pool.query(
+            "UPDATE orders SET quantity=$2::int WHERE id=$1::int", 
+            [req.params.id, data.pickup_facility_name, data.pickup_address, data.pickup_city, data.pickup_state, data.pickup_zip, data.pickup_phone, data.pickup_email]
+        )
+        .then( () => {
+            res.status(201); // Created
+            res.send('Successfully updated an item!');
+        })
+        .catch( (err) => {
+            console.log('error');
+        })
+
+});
+
+
+ // accept DELETE request at URI: /ordersRouter
+ router.delete('/order-routes/:id', (req, res) => {
+    console.log(req.body); // <-- this is the data that has been extracted from the request
+    res.send('Deleting ordersRouter..');
+
+    pool.query(
+        "DELETE FROM orders WHERE id = $1::int", [req.params.id])
+    .then( () => {
+        res.status(202); // Deleted
+        res.send('Successfully deleted item!');
+    })
+});
+
+module.exports = router;
