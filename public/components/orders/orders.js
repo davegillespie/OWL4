@@ -84,10 +84,10 @@ function OrdersController($scope, OrdersService) {
          
         <div class="insideheader"> 
             <h3>Orders</h3>  
-            <ul class="insideheader-nav">       
-                <li><button ng-click="showTheForm = !showTheForm" class="btnCreate">Create Order</button></li> 
-                <li><button class="shipmentbtn" ng-click="">Create Shipment</button></li>       
-            </ul>   
+                  
+            <button class="btn btn-info" ng-click="showTheForm = !showTheForm" class="btnCreate">Create Order</button> 
+                       
+              
         </div>
 
 
@@ -125,8 +125,8 @@ function OrdersController($scope, OrdersService) {
                 <br>
                 <br>
 
-                <input type="submit" value="SUBMIT"/>
-                <input type="button" ng-click="showTheForm = false" value="CANCEL" />
+                <input type="submit" class="btn btn-primary" value="SUBMIT"/>
+                <input type="button" class="btn btn-danger" ng-click="showTheForm = false" value="CANCEL" />
                 
         </form>
 

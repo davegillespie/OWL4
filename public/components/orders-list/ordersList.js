@@ -117,11 +117,16 @@ var orderSelected = [];
     template: `
     <section id="orders-list">
       
+
+    
   
     <table>
       <thead>
           <tr>
-              <th><input type="checkbox" ng-model="master"/><input type="button" class="btn ng-model="master" btn-danger btn-xs" ng-click="addShipment(master)" /></th>
+              <th>
+                
+                <input type="button" value="Ship" class="btn btn-primary btn-xs" ng-model="master" ng-click="addShipment(master)" />
+              </th>
               <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
@@ -176,7 +181,10 @@ var orderSelected = [];
               <td> {{item.delivery_phone}} </td>
               <td> {{item.delivery_email}} </td>
               
-              <td> <button ng-click="$ctrl.removeItem(item)"> x </button> </td>
+              <td> 
+                <button class="btn btn-primary btn-xs"> Edit </button>
+                <button ng-click="$ctrl.removeItem(item)" class="btn btn-danger btn-xs"> Delete </button> 
+              </td>
           </tr>
         </tbody>
     </table>

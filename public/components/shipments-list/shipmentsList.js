@@ -102,11 +102,11 @@ function ShipmentsListController(OrdersService) {
       <tbody>
           <tr ng-repeat="shipment in $ctrl.shipmentsList">
               <td>
-              <button ng-if="shipment.expanded" ng-click="shipment.expanded = false">-</button>
-              <button ng-if="!shipment.expanded" ng-click="shipment.expanded = true">+</button>
+                <button class="btn btn-secondary" ng-if="shipment.expanded" ng-click="shipment.expanded = false">-</button>
+                <button class="btn btn-secondary" ng-if="!shipment.expanded" ng-click="shipment.expanded = true">+</button>
               </td>
-              <td><input type="checkbox" /></td>
-              <td><button class="btnRate">$2000</button></td>
+              <td> <input type="checkbox" /> </td>
+              <td> <button class="btnRate">$2000</button> </td>
               <td> {{shipment.id}} </td>
               <td> {{shipment.pickup_facility_name}} </td>
               <td> {{shipment.pickup_address}} </td>
@@ -132,7 +132,10 @@ function ShipmentsListController(OrdersService) {
               <td> {{shipment.delivery_email}} </td>
               <td> {{shipment.carrier}} </td>
               
-              <td> <button ng-click="$ctrl.removeShipment(shipment)"> x </button> </td>
+              <td> 
+                <button class="btn btn-primary btn-xs"> Edit </button>
+                <button class="btn btn-danger btn-xs" ng-click="$ctrl.removeShipment(shipment)"> Delete </button> 
+              </td>
           </tr>
 
               <tr ng-if="shipment.expanded" ng-repeat-end="">
