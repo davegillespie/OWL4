@@ -93,42 +93,41 @@ function OrdersController($scope, OrdersService) {
 
         <form class="create-order" ng-submit="addItem()" ng-show="showTheForm" ng-submit="processForm()">
     
-            <h4>NEW ORDER FORM:</h4>
-            <p>Pickup Details</p>
-                <input class="input-item" type="number" placeholder="ID" ng-model="newItem.id"/>
-                <input class="input-item" type="text" placeholder="Pickup Facility Name" ng-model="newItem.pickup_facility_name"/>
-                <input class="input-item" type="text" placeholder="Address" ng-model="newItem.pickup_address"/>
-                <input class="input-item" type="text" placeholder="City" ng-model="newItem.pickup_city"/>
-                <input class="input-item" type="text" placeholder="State" ng-model="newItem.pickup_state"/>
-                <input class="input-item" type="text" placeholder="Zip" ng-model="newItem.pickup_zip"/>
-                <input class="input-item" type="text" placeholder="Phone" ng-model="newItem.pickup_phone"/>
-                <input class="input-item" type="text" placeholder="Email" ng-model="newItem.pickup_email"/>
-                <input class="input-item" type="date" placeholder="Pickup Date" ng-model="newItem.pickup_date"/>
-                <input class="input-item" type="date" placeholder="Delivery Date" ng-model="newItem.delivery_date"/>
+        <h4>NEW ORDER FORM:</h4>
+        <p>Pickup Details</p>
+            <input class="input-item" type="number" placeholder="ID" ng-model="newItem.id"/>
+            <input class="input-item" type="text" placeholder="Pickup Facility Name" ng-model="newItem.pickup_facility_name"/>
+            <input class="input-item" type="text" placeholder="Address" ng-model="newItem.pickup_address"/>
+            <input class="input-item" type="text" placeholder="City" ng-model="newItem.pickup_city"/>
+            <input class="input-item" type="text" placeholder="State" ng-model="newItem.pickup_state"/>
+            <input class="input-item" type="text" placeholder="Zip" ng-model="newItem.pickup_zip"/>
+            <input class="input-item" type="text" placeholder="Phone" ng-model="newItem.pickup_phone"/>
+            <input class="input-item" type="text" placeholder="Email" ng-model="newItem.pickup_email"/>
+            <input class="input-item" type="date" placeholder="Pickup Date" ng-model="newItem.pickup_date"/>
+            <input class="input-item" type="date" placeholder="Delivery Date" ng-model="newItem.delivery_date"/>
+        
+        <p>Freight Details</p>
+            <input class="input-item" type="text" placeholder="Quantity" ng-model="newItem.quantity"/>
+            <input class="input-item" type="text" placeholder="Unity Type" ng-model="newItem.unit"/>
+            <input class="input-item" type="number" placeholder="Weight" ng-model="newItem.weight"/>
+            <input class="input-item" type="text" placeholder="Trailer" ng-model="newItem.trailer"/>
+            <input class="input-item" type="text" placeholder="Temperature" ng-model="newItem.temperature"/>
+            <input class="input-item" type="text" placeholder="Size" ng-model="newItem.size"/>
+        
+        <p>Delivery Details</p>
+            <input class="input-item" type="text" placeholder="Delivery Facility Name" ng-model="newItem.delivery_facility_name"/>
+            <input class="input-item" type="text" placeholder="Delivery Address" ng-model="newItem.delivery_address"/>
+            <input class="input-item" type="text" placeholder="Delivery City" ng-model="newItem.delivery_city"/>
+            <input class="input-item" type="text" placeholder="Delivery State" ng-model="newItem.delivery_state"/>
+            <input class="input-item" type="text" placeholder="Delivery Zip" ng-model="newItem.delivery_zip"/>
+            <input class="input-item" type="text" placeholder="Delivery Phone" ng-model="newItem.delivery_phone"/>
+            <input class="input-item" type="text" placeholder="Delivery Email" ng-model="newItem.delivery_email"/>
+            <br>
+            <br>
+            <input type="submit" value="SUBMIT"/>
+            <input type="button" ng-click="showTheForm = false" value="CANCEL" />
             
-            <p>Freight Details</p>
-                <input class="input-item" type="text" placeholder="Quantity" ng-model="newItem.quantity"/>
-                <input class="input-item" type="text" placeholder="Unity Type" ng-model="newItem.unit"/>
-                <input class="input-item" type="number" placeholder="Weight" ng-model="newItem.weight"/>
-                <input class="input-item" type="text" placeholder="Trailer" ng-model="newItem.trailer"/>
-                <input class="input-item" type="text" placeholder="Temperature" ng-model="newItem.temperature"/>
-                <input class="input-item" type="text" placeholder="Size" ng-model="newItem.size"/>
-            
-            <p>Delivery Details</p>
-                <input class="input-item" type="text" placeholder="Delivery Facility Name" ng-model="newItem.delivery_facitlity_name"/>
-                <input class="input-item" type="text" placeholder="Delivery Address" ng-model="newItem.delivery_address"/>
-                <input class="input-item" type="text" placeholder="Delivery City" ng-model="newItem.delivery_city"/>
-                <input class="input-item" type="text" placeholder="Delivery State" ng-model="newItem.delivery_state"/>
-                <input class="input-item" type="text" placeholder="Delivery Zip" ng-model="newItem.delivery_zip"/>
-                <input class="input-item" type="text" placeholder="Delivery Phone" ng-model="newItem.delivery_phone"/>
-                <input class="input-item" type="text" placeholder="Delivery Email" ng-model="newItem.delivery_email"/>
-                <br>
-                <br>
-
-                <input type="submit" value="SUBMIT"/>
-                <input type="button" ng-click="showTheForm = false" value="CANCEL" />
-                
-        </form>
+    </form>
 
         <orders-list></orders-list>     
 
