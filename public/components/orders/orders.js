@@ -20,7 +20,7 @@ function OrdersController($scope, OrdersService) {
             trailer: $scope.newItem.trailer,
             temperature: $scope.newItem.temperature,
             size: $scope.newItem.size,
-            delivery_facility_name: $scope.newItem.delivery_facitlity_name,
+            delivery_facility_name: $scope.newItem.delivery_facility_name,
             delivery_address: $scope.newItem.delivery_address,
             delivery_city: $scope.newItem.delivery_city,
             delivery_state: $scope.newItem.delivery_state,
@@ -115,7 +115,7 @@ function OrdersController($scope, OrdersService) {
                 <input class="input-item" type="text" placeholder="Size" ng-model="newItem.size"/>
             
             <p>Delivery Details</p>
-                <input class="input-item" type="text" placeholder="Delivery Facility Name" ng-model="newItem.delivery_facitlity_name"/>
+                <input class="input-item" type="text" placeholder="Delivery Facility Name" ng-model="newItem.delivery_facility_name"/>
                 <input class="input-item" type="text" placeholder="Delivery Address" ng-model="newItem.delivery_address"/>
                 <input class="input-item" type="text" placeholder="Delivery City" ng-model="newItem.delivery_city"/>
                 <input class="input-item" type="text" placeholder="Delivery State" ng-model="newItem.delivery_state"/>
