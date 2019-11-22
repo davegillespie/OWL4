@@ -132,7 +132,10 @@ function ShipmentsListController(OrdersService) {
               <td> {{shipment.delivery_email}} </td>
               <td> {{shipment.carrier}} </td>
               
-              <td> <button ng-click="$ctrl.removeShipment(shipment)"> x </button> </td>
+              <td> 
+                <button class="btn btn-danger" ng-click="$ctrl.removeShipment(shipment)"> DELETE </button>
+                <button class="btn btn-primary" > EDIT </button> 
+              </td>
           </tr>
 
               <tr ng-if="shipment.expanded" ng-repeat-end="">

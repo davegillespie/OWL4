@@ -16,7 +16,7 @@ function OrdersService($http, $q) {
             return res.item;
           }
           
-            $http.post('/orders-router', item)
+            $http.post('orders-router', item)
             .then( (success) => {
                 service.items = {};
                 // service.ordersList = data;

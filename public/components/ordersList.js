@@ -121,7 +121,9 @@ var orderSelected = [];
     <table>
       <thead>
           <tr>
-              <th><input type="checkbox" ng-model="master"/><input type="button" class="btn ng-model="master" btn-danger btn-xs" ng-click="addShipment(master)" /></th>
+              <th>
+                <input type="button" class="btn btn-secondary" ng-model="master" btn-danger btn-xs" ng-click="addShipment(master)" value="Ship" />
+              </th>
               <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
@@ -146,7 +148,7 @@ var orderSelected = [];
               <th>Delivery Phone</th>
               <th>Delivery Email</th>
 
-              <th>Remove</th>
+              <th></th>
           </tr>
       </thead>
       <tbody>
@@ -176,7 +178,10 @@ var orderSelected = [];
               <td> {{item.delivery_phone}} </td>
               <td> {{item.delivery_email}} </td>
               
-              <td> <button ng-click="$ctrl.removeItem(item)"> x </button> </td>
+              <td> 
+                <button class="btn btn-danger" ng-click="$ctrl.removeItem(item)"> DELETE </button> 
+                <button class="btn btn-primary"> EDIT </button> 
+              </td>
           </tr>
         </tbody>
     </table>
