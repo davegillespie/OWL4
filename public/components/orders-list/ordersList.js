@@ -77,7 +77,7 @@ var orderSelected = [];
             if (isTrue) {
               console.log("item", item);
                 orderSelected.push(item);
-                console.log("item", orderSelected);
+                console.log("orderSelected.push", orderSelected);
             }
             else {
                 var index = orderSelected.indexOf(item);

@@ -67,7 +67,7 @@ function ShipmentsListController(OrdersService) {
           <tr>
             <th></th>
             <th></th>
-            <th>Rate</h>        
+              <th>Rate</h>        
               <th>Order ID</th>
               <th>Pickup Facility Name</th>
               <th>Pickup Address</th>
@@ -95,7 +95,6 @@ function ShipmentsListController(OrdersService) {
               <th>Delivery Phone</th>
               <th>Delivery Email</th>
               <th>Carrier</th>
-              <th>Rate</th>
 
               <th>Remove</th>
           </tr>
@@ -108,40 +107,60 @@ function ShipmentsListController(OrdersService) {
           </td>
           <td><input type="checkbox" /></td>
           <td><button class="btnRate">$2000</button></td>
-              <td> {{shipment.shipment_id}} </td>
-              <td> {{shipment.shipment_carrier}} </td>
-              <td> {{shipment.shipment_rate}} </td>
+              <td> {{shipment.id}} </td>
+              <td> {{shipment.pickup_facility_name}} </td>
+              <td> {{shipment.pickup_address}} </td>
+              <td> {{shipment.pickup_city}} </td>
+              <td> {{shipment.pickup_state}} </td>
+              <td> {{shipment.pickup_zip}} </td>
+              <td> {{shipment.pickup_phone}} </td>
+              <td> {{shipment.pickup_email}} </td>
+              <td> {{shipment.pickup_date}} </td>
+              <td> {{shipment.delivery_date}} </td>
+              <td> {{shipment.quantity}} </td>
+              <td> {{shipment.unit}} </td>
+              <td> {{shipment.weight}} </td>
+              <td> {{shipment.trailer}} </td>
+              <td> {{shipment.temperature}} </td>
+              <td> {{shipment.size}} </td>
+              <td> {{shipment.delivery_facility_name}} </td>
+              <td> {{shipment.delivery_address}} </td>
+              <td> {{shipment.delivery_city}} </td>
+              <td> {{shipment.delivery_state}} </td>
+              <td> {{shipment.delivery_zip}} </td>
+              <td> {{shipment.delivery_phone}} </td>
+              <td> {{shipment.delivery_email}} </td>
+              <td> {{shipment.carrier}} </td>
+              
               
               <td> <button ng-click="$ctrl.removeShipment(shipment)"> x </button> </td>
           </tr>
 
           <tr ng-if="shipment.expanded" ng-repeat-end="">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>      
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td> {{shipment.id[1]}} </td>
+              <td> {{shipment.pickup_facility_name[1]}} </td>
+              <td> {{shipment.pickup_address[1]}} </td>
+              <td> {{shipment.pickup_city[1]}} </td>
+              <td> {{shipment.pickup_state[1]}} </td>
+              <td> {{shipment.pickup_zip[1]}} </td>
+              <td> {{shipment.pickup_phone[1]}} </td>
+              <td> {{shipment.pickup_email[1]}} </td>
+              <td> {{shipment.pickup_date[1]}} </td>
+              <td> {{shipment.delivery_date[1]}} </td>
+              <td> {{shipment.quantity[1]}} </td>
+              <td> {{shipment.unit[1]}} </td>
+              <td> {{shipment.weight[1]}} </td>
+              <td> {{shipment.trailer[1]}} </td>
+              <td> {{shipment.temperature[1]}} </td>
+              <td> {{shipment.size[1]}} </td>
+              <td> {{shipment.delivery_facility_name[1]}} </td>
+              <td> {{shipment.delivery_address[1]}} </td>
+              <td> {{shipment.delivery_city[1]}} </td>
+              <td> {{shipment.delivery_state[1]}} </td>
+              <td> {{shipment.delivery_zip[1]}} </td>
+              <td> {{shipment.delivery_phone[1]}} </td>
+              <td> {{shipment.delivery_email[1]}} </td>
+              <td> {{shipment.carrier[1]}} </td>
             </tr>
 
 

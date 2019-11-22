@@ -78,16 +78,20 @@ function OrdersService($http, $q) {
     //   ];
 
       service.addShipment = (orderSelected) => {
-          console.log(orderSelected);
+          console.log("orderSelected", orderSelected);
         //   service.shipmentsList.push(orderSelected);  // This part works
  
           function genericSuccess (res) { 
             console.log("right before http", res);
-              return res.data.data;
+            console.log("res", res);
+                // return res.data.data;
+                return res;
             //   return res.orderSelected;
           }
               $http.post('/shipments-router', orderSelected)
               .then( (success) => {
+                  console.log("success", success);
+                  console.log("orderSelected", orderSelected);
                   service.orderSelected =  {};
                 //   service.shipmentsList = data;
                 //   console.log(data);
